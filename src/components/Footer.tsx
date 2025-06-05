@@ -2,15 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Instagram, 
-  Facebook, 
+import {
+  MapPin,
+  Phone, Instagram,
+  Link,
   MessageCircle,
   Heart,
-  ArrowUp 
+  ArrowUp
 } from 'lucide-react';
 import { siteData } from '@/data/siteData';
 
@@ -48,19 +46,19 @@ const Footer: React.FC = () => {
                   href={siteData.siteInfo.socialMedia.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-green-800 hover:bg-green-700 px-4 py-2 rounded-lg transition-colors duration-300"
+                  className="flex items-center gap-2 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 px-4 py-2 rounded-lg transition-all duration-300"
                 >
                   <Instagram size={18} />
                   <span className="text-sm">Instagram</span>
                 </a>
                 <a
-                  href={siteData.siteInfo.socialMedia.facebook}
+                  href={siteData.siteInfo.socialMedia.linkGoogle}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg transition-colors duration-300"
                 >
-                  <Facebook size={18} />
-                  <span className="text-sm">Facebook</span>
+                  <Link size={18} />
+                  <span className="text-sm">Link Google</span>
                 </a>
                 <a
                   href={siteData.siteInfo.socialMedia.whatsapp}
@@ -103,7 +101,7 @@ const Footer: React.FC = () => {
                     {siteData.siteInfo.phone}
                   </a>
                 </div>
-                <div className="flex items-center gap-3">
+                {/* <div className="flex items-center gap-3">
                   <Mail size={18} className="text-green-300 flex-shrink-0" />
                   <a 
                     href={`mailto:${siteData.siteInfo.email}`}
@@ -111,7 +109,7 @@ const Footer: React.FC = () => {
                   >
                     {siteData.siteInfo.email}
                   </a>
-                </div>
+                </div> */}
               </div>
             </motion.div>
 
@@ -148,7 +146,7 @@ const Footer: React.FC = () => {
               
               <div className="flex items-center gap-4">
                 <span className="text-green-300 text-sm flex items-center gap-1">
-                  Feito com <Heart size={14} className="text-red-400" fill="currentColor" /> para conectar você à natureza
+                  Feito com <Heart size={14} className="text-red-400" fill="currentColor" /> Marcus para conectar você à natureza
                 </span>
                 
                 <button

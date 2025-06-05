@@ -13,24 +13,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://sitio-vale-verde.com.br' : 'http://localhost:3000'),
-  title: "Sítio Vale Verde - Turismo Rural em Guarapari, ES | Natureza e Tranquilidade",
-  description: "Venha conhecer o Sítio Vale Verde em Guarapari, ES. Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo. Reserve sua estadia no interior capixaba!",
+  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://sitiorecantodosamigos.com.br' : 'http://localhost:3000'),
+  title: "Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES | Natureza e Tranquilidade",
+  description: "Venha conhecer o Sítio Recanto dos Amigos em Guarapari, ES. Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo. Reserve sua estadia no interior capixaba!",
   keywords: [
     "sítio guarapari",
     "turismo rural espírito santo",
     "pousada guarapari",
     "natureza es",
     "hospedagem rural",
-    "vale verde",
+    "Recanto dos Amigos",
     "interior guarapari",
     "agroturismo",
     "ecoturismo",
     "família natureza"
   ],
-  authors: [{ name: "Sítio Vale Verde" }],
-  creator: "Sítio Vale Verde",
-  publisher: "Sítio Vale Verde",
+  authors: [{ name: "Sítio Recanto dos Amigos" }],
+  creator: "Sítio Recanto dos Amigos",
+  publisher: "Sítio Recanto dos Amigos",
   robots: {
     index: true,
     follow: true,
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     url: '/',
-    siteName: 'Sítio Vale Verde',
-    title: 'Sítio Vale Verde - Turismo Rural em Guarapari, ES',
+    siteName: 'Sítio Recanto dos Amigos',
+    title: 'Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES',
     description: 'Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo no interior de Guarapari, Espírito Santo.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sítio Vale Verde - Turismo Rural em Guarapari, ES',
+    title: 'Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES',
     description: 'Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo no interior de Guarapari, ES.',
   },
   verification: {

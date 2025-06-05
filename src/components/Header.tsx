@@ -59,12 +59,12 @@ const Header: React.FC = () => {
               <span className={`font-bold text-lg leading-tight ${
                 isScrolled ? 'text-green-800' : 'text-white'
               }`}>
-                Sítio Paraíso
+                Sítio Recanto
               </span>
               <span className={`text-sm leading-tight ${
                 isScrolled ? 'text-green-600' : 'text-green-200'
               }`}>
-                Verde
+                dos Amigos
               </span>
             </div>
           </motion.div>

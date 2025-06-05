@@ -1,5 +1,3 @@
-// Tipos TypeScript para os dados do sítio
-
 export interface SiteInfo {
   name: string;
   location: string;
@@ -9,7 +7,7 @@ export interface SiteInfo {
   email: string;
   socialMedia: {
     instagram: string;
-    facebook: string;
+    linkGoogle: string;
     whatsapp: string;
   };
 }
@@ -46,30 +44,23 @@ export interface Testimonial {
   date: string;
 }
 
-// Dados simulados para o sítio em Guarapari
-
 export const siteInfo: SiteInfo = {
-  name: "Sítio Paraíso Verde",
+  name: "Sítio Recanto dos Amigos",
   location: "Interior de Guarapari, ES, Brasil",
-  description: "Seu refúgio perfeito em meio à natureza exuberante do Espírito Santo",
-  address: "Estrada do Sítio, 123 - Zona Rural, Guarapari - ES, CEP: 29200-000",
-  phone: "(27) 99999-9999",
-  email: "contato@sitioparaisoverde.com.br",
+  description: "Seu refúgio perfeito em meio à natureza exuberante de Buenos Aires no Espírito Santo",
+  address: "Buenos Aires na Rota da Ferradura, Próximo ao Sitío Riacho da Pedras, Guarapari - ES, CEP: 29200-000",
+  phone: "(27) 99927-9173",
+  email: "contato@sitiorecantodosamigos.com.br",
   socialMedia: {
-    instagram: "https://instagram.com/sitioparaisoverde",
-    facebook: "https://facebook.com/sitioparaisoverde",
-    whatsapp: "https://wa.me/5527999999999"
+    instagram: "https://www.instagram.com/recan.todosamigos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    linkGoogle:  "https://g.co/kgs/vSM7BFt ",
+    whatsapp: "https://wa.me/5527999279173?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Sítio%20Recanto%20dos%20Amigos"
   }
 };
 
 export const accommodations: Accommodation[] = [
   {
-    title: "Casa Principal",
-    description: "3 quartos com ar-condicionado, acomoda até 8 pessoas",
-    icon: "🏠"
-  },
-  {
-    title: "Chalé Rústico",
+    title: "Chalé Principal",
     description: "2 quartos aconchegantes com vista para a mata",
     icon: "🏡"
   }
