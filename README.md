@@ -1,36 +1,257 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌿 Sítio Paraíso Verde - Landing Page
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15.3.3-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.0-06B6D4?style=for-the-badge&logo=tailwindcss)
 
+**Uma landing page moderna e responsiva para um sítio em Guarapari, ES**
+
+[🚀 Demo](#) • [📖 Documentação](#features) • [🛠️ Instalação](#installation)
+
+</div>
+
+---
+
+## 📋 Sobre o Projeto
+
+Esta é uma landing page completa e responsiva desenvolvida para promover um sítio localizado no interior de Guarapari, ES, Brasil. O site foi criado com foco em destacar o ambiente agradável, preço justo e a conexão única com a natureza que o local oferece.
+
+### 🎯 Objetivos
+
+- **Conversão**: CTAs estratégicos para maximizar reservas
+- **SEO**: Otimizado para mecanismos de busca
+- **Performance**: Carregamento rápido e experiência fluida
+- **Responsividade**: Funciona perfeitamente em todos os dispositivos
+- **Acessibilidade**: Seguindo as melhores práticas de UX/UI
+
+## ✨ Features
+
+### 🏠 **Seções Principais**
+- **Hero Section**: Carrossel de imagens com CTAs principais
+- **Sobre**: Apresentação do sítio e seus diferenciais
+- **Acomodações**: Detalhes das estruturas disponíveis
+- **Atividades**: Experiências na natureza
+- **Galeria**: Fotos do local com filtros e lightbox
+- **Depoimentos**: Avaliações de hóspedes
+- **Contato**: Formulário e informações de localização
+
+### 🎨 **Design & UX**
+- **Paleta Natural**: Cores inspiradas na natureza (verde, azul, terra)
+- **Animações Suaves**: Transições com Framer Motion
+- **Interface Moderna**: Design clean e profissional
+- **Navegação Intuitiva**: Menu sticky e scroll suave
+
+### ⚡ **Performance & Tecnologia**
+- **Next.js 15.3.3**: Framework React de última geração
+- **TypeScript**: Tipagem estática para maior confiabilidade
+- **TailwindCSS 4.0**: Estilização utilitária moderna
+- **Lazy Loading**: Carregamento otimizado de componentes
+- **Image Optimization**: Imagens otimizadas automaticamente
+
+### 📱 **Funcionalidades Interativas**
+- **Carrossel Hero**: Auto-play com controles manuais
+- **Galeria Filtrada**: Categorização de fotos por tipo
+- **Lightbox**: Visualização ampliada de imagens
+- **Formulário Validado**: Validação em tempo real com React Hook Form
+- **Menu Responsivo**: Navegação adaptativa para mobile
+
+## 🛠️ Tecnologias Utilizadas
+
+### **Frontend**
+- **Next.js 15.3.3** - Framework React
+- **React 19.0.0** - Biblioteca UI
+- **TypeScript 5.0** - Tipagem estática
+- **TailwindCSS 4.0** - Framework CSS
+
+### **Bibliotecas**
+- **Framer Motion** - Animações
+- **Lucide React** - Ícones
+- **React Hook Form** - Gerenciamento de formulários
+- **React Intersection Observer** - Animações baseadas em scroll
+
+### **Ferramentas de Desenvolvimento**
+- **ESLint** - Linting de código
+- **PostCSS** - Processamento CSS
+- **Prettier** - Formatação de código
+
+## 🚀 Instalação {#installation}
+
+### **Pré-requisitos**
+- Node.js 18.17+ 
+- npm, yarn, pnpm ou bun
+
+### **Clonando o Repositório**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd landing_page_sitio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Instalando Dependências**
+```bash
+# Com npm
+npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Com yarn
+yarn install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Com pnpm
+pnpm install
 
-## Learn More
+# Com bun
+bun install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### **Executando o Projeto**
+```bash
+# Desenvolvimento
+npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Build de produção
+npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Executar build
+npm start
 
-## Deploy on Vercel
+# Linting
+npm run lint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📁 Estrutura do Projeto
+
+```
+landing_page_sitio/
+├── 📁 public/
+│   ├── favicon.ico
+│   ├── robots.txt
+│   └── sitemap.xml
+├── 📁 src/
+│   ├── 📁 app/
+│   │   ├── layout.tsx          # Layout principal
+│   │   ├── page.tsx            # Página inicial
+│   │   └── globals.css         # Estilos globais
+│   ├── 📁 components/
+│   │   ├── Header.tsx          # Cabeçalho e navegação
+│   │   ├── HeroSection.tsx     # Seção principal
+│   │   ├── AboutSection.tsx    # Sobre o sítio
+│   │   ├── AccommodationsSection.tsx    # Acomodações
+│   │   ├── NatureActivitiesSection.tsx # Atividades
+│   │   ├── GallerySection.tsx  # Galeria de fotos
+│   │   ├── TestimonialsSection.tsx     # Depoimentos
+│   │   ├── LocationContactSection.tsx  # Contato
+│   │   └── Footer.tsx          # Rodapé
+│   ├── 📁 data/
+│   │   └── siteData.ts         # Dados do site
+│   └── 📁 assets/
+│       └── 📁 images/          # Imagens do projeto
+├── next.config.ts              # Configuração Next.js
+├── tailwind.config.ts          # Configuração Tailwind
+└── tsconfig.json              # Configuração TypeScript
+```
+
+## 🎨 Paleta de Cores
+
+```css
+/* Cores Principais */
+--primary-green: #166534     /* Verde escuro */
+--primary-blue: #1e40af      /* Azul principal */
+--accent-green: #22c55e      /* Verde claro */
+--accent-blue: #3b82f6       /* Azul claro */
+
+/* Cores Neutras */
+--earth-brown: #a3a3a3       /* Terra */
+--warm-white: #fafafa        /* Branco quente */
+--soft-gray: #f3f4f6         /* Cinza suave */
+```
+
+## 📊 SEO & Performance
+
+### **Otimizações SEO**
+- ✅ Meta tags otimizadas
+- ✅ Open Graph tags
+- ✅ Twitter Cards
+- ✅ Sitemap.xml
+- ✅ Robots.txt
+- ✅ Structured data (JSON-LD)
+
+### **Performance**
+- ✅ Image optimization
+- ✅ Lazy loading
+- ✅ Code splitting
+- ✅ Bundle optimization
+- ✅ Cache estratégico
+
+## 🚀 Deploy
+
+### **Vercel (Recomendado)**
+```bash
+# Instalar Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+```
+
+### **Netlify**
+```bash
+# Build
+npm run build
+
+# Deploy pasta out/
+```
+
+### **Outras Plataformas**
+O projeto é compatível com qualquer plataforma que suporte Next.js static export.
+
+## 📝 Customização
+
+### **Alterando Dados do Site**
+Edite o arquivo `src/data/siteData.ts`:
+
+```typescript
+export const siteInfo: SiteInfo = {
+  name: "Seu Sítio",
+  location: "Sua Localização", 
+  description: "Sua Descrição",
+  // ... outros campos
+};
+```
+
+### **Modificando Cores**
+Ajuste as cores no `tailwind.config.ts`:
+
+```typescript
+theme: {
+  extend: {
+    colors: {
+      primary: {
+        green: '#166534',
+        blue: '#1e40af',
+        // ...
+      }
+    }
+  }
+}
+```
+
+## 🤝 Contribuindo
+
+1. Fork o projeto
+2. Crie uma branch: `git checkout -b feature/nova-feature`
+3. Commit suas mudanças: `git commit -m 'Adiciona nova feature'`
+4. Push para a branch: `git push origin feature/nova-feature`
+5. Abra um Pull Request
+
+---
+
+<div align="center">
+
+**Desenvolvido com ❤️ para conectar pessoas à natureza**
+
+[⬆ Voltar ao topo](#-sítio-paraíso-verde---landing-page)
+
+</div>
