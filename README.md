@@ -1,4 +1,4 @@
-# 🌿 Sítio Paraíso Verde - Landing Page
+# 🌿 Sítio Recanto dos Amigos - Landing Page
 
 <div align="center">
 
@@ -252,6 +252,6 @@ theme: {
 
 **Desenvolvido com ❤️ para conectar pessoas à natureza**
 
-[⬆ Voltar ao topo](#-sítio-paraíso-verde---landing-page)
+[⬆ Voltar ao topo](#top)
 
 </div>
