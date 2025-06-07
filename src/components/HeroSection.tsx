@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Play } from 'lucide-react';
 import { siteInfo } from '../data/siteData';
 import Image from 'next/image';
-import RocaImage1 from '../assets/images/Roca1.jpg';
-import RocaImage2 from '../assets/images/Roca2.jpeg';
-import RocaImage3 from '../assets/images/Roca3.jpg';
-import RocaImage4 from '../assets/images/Roca4.jpg';
+import RocaImage1 from '../assets/images/Roca1.webp';
+import RocaImage2 from '../assets/images/Roca2.webp';
+import RocaImage3 from '../assets/images/Roca3.webp';
+import RocaImage4 from '../assets/images/Roca4.webp';
 import { StaticImageData } from 'next/image';
 
 const HeroSection: React.FC = () => {

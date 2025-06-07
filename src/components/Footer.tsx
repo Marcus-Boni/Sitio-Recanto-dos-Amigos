@@ -4,7 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   MapPin,
-  Phone, Instagram,
+  Phone,
+  Instagram,
   Link,
   MessageCircle,
   Heart,
@@ -26,7 +27,6 @@ const Footer: React.FC = () => {
         {/* Main Footer Content */}
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            
             {/* About Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -79,10 +79,15 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold mb-4 text-green-100">Contato</h4>
+              <h4 className="text-lg font-semibold mb-4 text-green-100">
+                Contato
+              </h4>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <MapPin size={18} className="text-green-300 mt-1 flex-shrink-0" />
+                  <MapPin
+                    size={18}
+                    className="text-green-300 mt-1 flex-shrink-0"
+                  />
                   <div>
                     <p className="text-green-200 text-sm">
                       {siteData.siteInfo.address}
@@ -94,7 +99,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone size={18} className="text-green-300 flex-shrink-0" />
-                  <a 
+                  <a
                     href={`tel:${siteData.siteInfo.phone}`}
                     className="text-green-200 text-sm hover:text-white transition-colors"
                   >
@@ -120,12 +125,25 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold mb-4 text-green-100">Navegação</h4>
+              <h4 className="text-lg font-semibold mb-4 text-green-100">
+                Navegação
+              </h4>
               <nav className="space-y-2">
-                {['Início', 'Sobre', 'Acomodações', 'Atividades', 'Galeria', 'Avaliações', 'Contato'].map((item) => (
+                {[
+                  'Início',
+                  'Sobre',
+                  'Acomodações',
+                  'Atividades',
+                  'Galeria',
+                  'Avaliações',
+                  'Contato'
+                ].map((item) => (
                   <a
                     key={item}
-                    href={`#${item.toLowerCase().replace('ç', 'c').replace('õ', 'o')}`}
+                    href={`#${item
+                      .toLowerCase()
+                      .replace('ç', 'c')
+                      .replace('õ', 'o')}`}
                     className="block text-green-200 text-sm hover:text-white transition-colors duration-300"
                   >
                     {item}
@@ -141,20 +159,40 @@ const Footer: React.FC = () => {
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-2 text-green-200 text-sm">
-                <span>© {currentYear} {siteData.siteInfo.name}. Todos os direitos reservados.</span>
+                <span>
+                  © {currentYear} {siteData.siteInfo.name}. Todos os direitos
+                  reservados.
+                </span>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <span className="text-green-300 text-sm flex items-center gap-1">
-                  Feito com <Heart size={14} className="text-red-400" fill="currentColor" /> Marcus para conectar você à natureza
+                  Criado com{' '}
+                  <Heart
+                    size={14}
+                    className="text-red-400"
+                    fill="currentColor"
+                  />por
+                  <a
+                    href="https://www.linkedin.com/in/marcus-boni-729a52243"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-300 hover:text-white transition-colors duration-300 underline"
+                    title="Perfil do LinkedIn de Marcus Boni"
+                  >
+                    Marcus
+                  </a>
                 </span>
-                
+
                 <button
                   onClick={scrollToTop}
                   className="bg-green-700 hover:bg-green-600 p-2 rounded-full transition-colors duration-300 group"
                   aria-label="Voltar ao topo"
                 >
-                  <ArrowUp size={18} className="group-hover:transform group-hover:-translate-y-1 transition-transform duration-300" />
+                  <ArrowUp
+                    size={18}
+                    className="group-hover:transform group-hover:-translate-y-1 transition-transform duration-300"
+                  />
                 </button>
               </div>
             </div>

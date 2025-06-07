@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://sitio-vale-verde.com.br/sitemap.xml
+Sitemap: https://sitio-recanto-dos-amigos.vercel.app/sitemap.xml
 
 # Crawl-delay for better server performance
 Crawl-delay: 1

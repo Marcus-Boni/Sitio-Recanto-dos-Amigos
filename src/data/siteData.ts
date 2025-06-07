@@ -1,8 +1,8 @@
 import { StaticImageData } from 'next/image';
-import RocaImage1 from '../assets/images/Roca1.jpg';
-import RocaImage2 from '../assets/images/Roca2.jpeg';
-import RocaImage3 from '../assets/images/Roca3.jpg';
-import RocaImage4 from '../assets/images/Roca4.jpg';
+import RocaImage1 from '../assets/images/Roca1.webp';
+import RocaImage2 from '../assets/images/Roca2.webp';
+import RocaImage3 from '../assets/images/Roca3.webp';
+import RocaImage4 from '../assets/images/Roca4.webp';
 
 export interface SiteInfo {
   name: string;

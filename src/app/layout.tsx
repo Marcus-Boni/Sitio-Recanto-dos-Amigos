@@ -14,9 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NODE_ENV === 'production'
-      ? 'https://sitiorecantodosamigos.com.br'
-      : 'http://localhost:3000'
+    'https://sitio-recanto-dos-amigos.vercel.app/'
   ),
   title:
     'Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES | Natureza e Tranquilidade',
