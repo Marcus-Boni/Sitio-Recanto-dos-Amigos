@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Heart, Leaf, Home, Star, MapPin, Users } from "lucide-react";
 import Image from "next/image";
-import RocaImage2 from '../assets/images/Roça2.jpeg';
+import RocaImage2 from '../assets/images/Roca2.jpeg';
 
 const AboutSection: React.FC = () => {
   const features = [

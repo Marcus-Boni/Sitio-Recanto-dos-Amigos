@@ -24,7 +24,9 @@ const TestimonialsSection: React.FC = () => {
 
   const prevTestimonial = () => {
     setDirection(-1);
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentTestimonial(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   const goToTestimonial = (index: number) => {
@@ -40,9 +42,7 @@ const TestimonialsSection: React.FC = () => {
             key={index}
             size={20}
             className={`${
-              index < rating 
-                ? 'text-yellow-400 fill-current' 
-                : 'text-gray-300'
+              index < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
             }`}
           />
         ))}
@@ -68,7 +68,10 @@ const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-b from-blue-50 to-purple-50">
+    <section
+      id="testimonials"
+      className="py-20 bg-gradient-to-b from-blue-50 to-purple-50"
+    >
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -88,7 +91,7 @@ const TestimonialsSection: React.FC = () => {
             <Heart size={16} />
             Avaliações dos Hóspedes
           </motion.div>
-          
+
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             O Que Nossos{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-orange-600">
@@ -96,16 +99,19 @@ const TestimonialsSection: React.FC = () => {
             </span>{' '}
             Dizem
           </h2>
-          
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Experiências reais de famílias que já viveram momentos únicos em nosso sítio. 
-            Cada avaliação reflete nosso compromisso com a excelência.
+            Experiências reais de famílias que já viveram momentos únicos em
+            nosso sítio. Cada avaliação reflete nosso compromisso com a
+            excelência.
           </p>
         </motion.div>
 
         {/* Main Testimonial Carousel */}
         <div className="relative max-w-4xl mx-auto mb-16">
-          <div className="relative h-96 flex items-center justify-center overflow-hidden">
+          <div className="relative min-h-[26rem] flex items-center justify-center overflow-hidden">
+            {' '}
+            {/* Changed h-96 to min-h-[26rem] */}
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={currentTestimonial}
@@ -115,7 +121,7 @@ const TestimonialsSection: React.FC = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  x: { type: 'spring', stiffness: 300, damping: 30 },
                   opacity: { duration: 0.2 }
                 }}
                 className="absolute w-full"
@@ -128,7 +134,7 @@ const TestimonialsSection: React.FC = () => {
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, type: "spring" }}
+                    transition={{ delay: 0.2, type: 'spring' }}
                     className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mb-6"
                   >
                     <Quote size={24} className="text-white" />
@@ -141,7 +147,9 @@ const TestimonialsSection: React.FC = () => {
                     transition={{ delay: 0.3 }}
                     className="flex justify-center mb-6"
                   >
-                    <StarRating rating={testimonials[currentTestimonial].rating} />
+                    <StarRating
+                      rating={testimonials[currentTestimonial].rating}
+                    />
                   </motion.div>
 
                   {/* Comment */}
@@ -219,27 +227,31 @@ const TestimonialsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
+                boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}
               className={`bg-white p-6 rounded-xl shadow-lg border transition-all duration-300 cursor-pointer ${
-                index === currentTestimonial 
-                  ? 'border-yellow-300 ring-2 ring-yellow-200' 
+                index === currentTestimonial
+                  ? 'border-yellow-300 ring-2 ring-yellow-200'
                   : 'border-gray-100 hover:border-yellow-200'
               }`}
               onClick={() => goToTestimonial(index)}
             >
               <div className="flex justify-between items-start mb-3">
                 <StarRating rating={testimonial.rating} />
-                <span className="text-xs text-gray-500">{testimonial.date}</span>
+                <span className="text-xs text-gray-500">
+                  {testimonial.date}
+                </span>
               </div>
-              
+
               <p className="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-3">
                 &quot;{testimonial.comment}&quot;
               </p>
-              
-              <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+
+              <h4 className="font-semibold text-gray-900">
+                {testimonial.name}
+              </h4>
             </motion.div>
           ))}
         </motion.div>
@@ -254,29 +266,20 @@ const TestimonialsSection: React.FC = () => {
         >
           <div className="bg-gradient-to-r from-yellow-400 to-orange-400 p-8 rounded-2xl text-white text-center">
             <div className="grid sm:grid-cols-3 gap-8">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="space-y-2"
-              >
+              <motion.div whileHover={{ scale: 1.05 }} className="space-y-2">
                 <div className="text-4xl font-bold">4.9</div>
                 <div className="flex justify-center">
                   <StarRating rating={5} />
                 </div>
                 <div className="text-yellow-100">Avaliação Média</div>
               </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="space-y-2"
-              >
+
+              <motion.div whileHover={{ scale: 1.05 }} className="space-y-2">
                 <div className="text-4xl font-bold">100%</div>
                 <div className="text-yellow-100">Recomendação</div>
               </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="space-y-2"
-              >
+
+              <motion.div whileHover={{ scale: 1.05 }} className="space-y-2">
                 <div className="text-4xl font-bold">100+</div>
                 <div className="text-yellow-100">Hóspedes Satisfeitos</div>
               </motion.div>

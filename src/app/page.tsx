@@ -13,6 +13,7 @@ import AboutSection from '@/components/AboutSection';
 const AccommodationsSection = dynamic(
   () => import('@/components/AccommodationsSection'),
   {
+    ssr: false,
     loading: () => (
       <div className="min-h-screen flex items-center justify-center">
         Carregando...
@@ -24,6 +25,7 @@ const AccommodationsSection = dynamic(
 const NatureActivitiesSection = dynamic(
   () => import('@/components/NatureActivitiesSection'),
   {
+    ssr: false,
     loading: () => (
       <div className="min-h-screen flex items-center justify-center">
         Carregando...
@@ -40,6 +42,7 @@ const GallerySection = dynamic(() => import('@/components/GallerySection'), {
 const TestimonialsSection = dynamic(
   () => import('@/components/TestimonialsSection'),
   {
+    ssr: false,
     loading: () => (
       <div className="min-h-screen flex items-center justify-center">
         Carregando...
@@ -51,6 +54,7 @@ const TestimonialsSection = dynamic(
 const LocationContactSection = dynamic(
   () => import('@/components/LocationContactSection'),
   {
+    ssr: false,
     loading: () => (
       <div className="min-h-screen flex items-center justify-center">
         Carregando...
@@ -60,6 +64,7 @@ const LocationContactSection = dynamic(
 );
 
 const Footer = dynamic(() => import('@/components/Footer'), {
+  ssr: false, // Disable SSR for Footer to avoid hydration issues if it contains client-specific logic
   loading: () => <div className="min-h-96 bg-green-900">Carregando...</div>
 });
 

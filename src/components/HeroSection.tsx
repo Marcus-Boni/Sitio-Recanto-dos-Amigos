@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Play } from 'lucide-react';
 import { siteInfo } from '../data/siteData';
 import Image from 'next/image';
-import RocaImage1 from '../assets/images/Roça1.jpg';
-import RocaImage2 from '../assets/images/Roça2.jpeg';
-import RocaImage3 from '../assets/images/Roça3.jpg';
-import RocaImage4 from '../assets/images/Roça4.jpg';
+import RocaImage1 from '../assets/images/Roca1.jpg';
+import RocaImage2 from '../assets/images/Roca2.jpeg';
+import RocaImage3 from '../assets/images/Roca3.jpg';
+import RocaImage4 from '../assets/images/Roca4.jpg';
 import { StaticImageData } from 'next/image';
 
 const HeroSection: React.FC = () => {
@@ -138,19 +138,19 @@ const HeroSection: React.FC = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToContact}
-                className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                className="bg-gradient-to-r from-green-600 to-green-700 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
               >
                 Verificar Disponibilidade
-                <ChevronRight size={20} />
+                <ChevronRight size={16} className="sm:w-5 sm:h-5" />
               </motion.button>
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToGallery}
-                className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold text-lg border-2 border-white/30 hover:bg-white/30 transition-all duration-300 flex items-center gap-2"
+                className="bg-white/20 backdrop-blur-sm text-white px-4 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg border-2 border-white/30 hover:bg-white/30 transition-all duration-300 flex items-center gap-2"
               >
-                <Play size={20} />
+                <Play size={16} className="sm:w-5 sm:h-5" />
                 Ver Fotos
               </motion.button>
             </motion.div>

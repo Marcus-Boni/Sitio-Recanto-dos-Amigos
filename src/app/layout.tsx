@@ -74,7 +74,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 5.0, // Allow user zooming up to 5x
   themeColor: '#166534'
 };
 
@@ -94,7 +94,6 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning={true}
       >
         {children}
       </body>

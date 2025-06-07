@@ -1,8 +1,8 @@
 import { StaticImageData } from 'next/image';
-import RocaImage1 from '../assets/images/Roça1.jpg';
-import RocaImage2 from '../assets/images/Roça2.jpeg';
-import RocaImage3 from '../assets/images/Roça3.jpg';
-import RocaImage4 from '../assets/images/Roça4.jpg';
+import RocaImage1 from '../assets/images/Roca1.jpg';
+import RocaImage2 from '../assets/images/Roca2.jpeg';
+import RocaImage3 from '../assets/images/Roca3.jpg';
+import RocaImage4 from '../assets/images/Roca4.jpg';
 
 export interface SiteInfo {
   name: string;
@@ -11,6 +11,10 @@ export interface SiteInfo {
   address: string;
   phone: string;
   email: string;
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
   socialMedia: {
     instagram: string;
     linkGoogle: string;
@@ -22,7 +26,7 @@ export interface Accommodation {
   title: string;
   description: string;
   icon: string;
-  features: string[]; 
+  features: string[];
 }
 
 export interface Amenity {
@@ -60,6 +64,10 @@ export const siteInfo: SiteInfo = {
     'Buenos Aires na Rota da Ferradura, Próximo ao Sitío Riacho da Pedras, Guarapari - ES, CEP: 29200-000',
   phone: '(27) 99927-9173',
   email: 'contato@sitiorecantodosamigos.com.br',
+  coordinates: {
+    lat: -20.6176709,
+    lng: -40.5817736
+  },
   socialMedia: {
     instagram:
       'https://www.instagram.com/recan.todosamigos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
