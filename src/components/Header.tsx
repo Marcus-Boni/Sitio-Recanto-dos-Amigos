@@ -26,9 +26,9 @@ const Header: React.FC = () => {
   };
 
   const menuItems: Array<{label: string; id: string}> = [
-    { label: 'Home', id: 'hero' },
+    { label: 'Home', id: 'home' },
     { label: 'Sobre', id: 'about' },
-    { label: 'Estrutura', id: 'accommodations' },
+    { label: 'Estrutura', id: 'acomodacoes' },
     { label: 'Fotos', id: 'gallery' },
     { label: 'Avaliações', id: 'testimonials' },
     { label: 'Contato', id: 'contact' }

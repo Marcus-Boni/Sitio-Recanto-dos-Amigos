@@ -10,25 +10,54 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 
 // Importação lazy dos componentes para otimização de performance
-const AccommodationsSection = dynamic(() => import('@/components/AccommodationsSection'), {
-  loading: () => <div className="min-h-screen flex items-center justify-center">Carregando...</div>
-});
+const AccommodationsSection = dynamic(
+  () => import('@/components/AccommodationsSection'),
+  {
+    loading: () => (
+      <div className="min-h-screen flex items-center justify-center">
+        Carregando...
+      </div>
+    )
+  }
+);
 
-const NatureActivitiesSection = dynamic(() => import('@/components/NatureActivitiesSection'), {
-  loading: () => <div className="min-h-screen flex items-center justify-center">Carregando...</div>
-});
+const NatureActivitiesSection = dynamic(
+  () => import('@/components/NatureActivitiesSection'),
+  {
+    loading: () => (
+      <div className="min-h-screen flex items-center justify-center">
+        Carregando...
+      </div>
+    )
+  }
+);
 
 const GallerySection = dynamic(() => import('@/components/GallerySection'), {
-  loading: () => <div className="min-h-screen flex items-center justify-center">Carregando...</div>
+  ssr: false,
+  loading: () => <div className="min-h-screen bg-gray-50" />
 });
 
-const TestimonialsSection = dynamic(() => import('@/components/TestimonialsSection'), {
-  loading: () => <div className="min-h-screen flex items-center justify-center">Carregando...</div>
-});
+const TestimonialsSection = dynamic(
+  () => import('@/components/TestimonialsSection'),
+  {
+    loading: () => (
+      <div className="min-h-screen flex items-center justify-center">
+        Carregando...
+      </div>
+    )
+  }
+);
 
-const LocationContactSection = dynamic(() => import('@/components/LocationContactSection'), {
-  loading: () => <div className="min-h-screen flex items-center justify-center">Carregando...</div>
-});
+const LocationContactSection = dynamic(
+  () => import('@/components/LocationContactSection'),
+  {
+    loading: () => (
+      <div className="min-h-screen flex items-center justify-center">
+        Carregando...
+      </div>
+    )
+  }
+);
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="min-h-96 bg-green-900">Carregando...</div>
@@ -39,7 +68,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* Header com navegação fixa */}
       <Header />
-      
+
       {/* Conteúdo principal */}
       <main className="relative">
         {/* Seção Hero - Primeira impressão */}

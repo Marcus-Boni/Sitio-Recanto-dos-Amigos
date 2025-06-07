@@ -6,11 +6,14 @@ import { TreePine, Eye, Fish, Mountain } from 'lucide-react';
 import { activities } from '../data/siteData';
 
 const NatureActivitiesSection: React.FC = () => {
-  const activityIcons: Record<string, React.ComponentType<{size?: number; className?: string}>> = {
+  const activityIcons: Record<
+    string,
+    React.ComponentType<{ size?: number; className?: string }>
+  > = {
     'Trilhas na Mata': TreePine,
     'Banho de Cachoeira': Mountain,
     'Observação de Aves': Eye,
-    'Pesca no Açude': Fish,
+    'Pesca no Açude': Fish
   };
 
   const containerVariants = {
@@ -35,7 +38,10 @@ const NatureActivitiesSection: React.FC = () => {
   };
 
   return (
-    <section id="activities" className="py-20 bg-gradient-to-b from-green-50 to-blue-50">
+    <section
+      id="activities"
+      className="py-20 bg-gradient-to-b from-green-50 to-blue-50"
+    >
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -55,7 +61,7 @@ const NatureActivitiesSection: React.FC = () => {
             <TreePine size={16} />
             Atividades na Natureza
           </motion.div>
-          
+
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Explore a{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
@@ -63,10 +69,10 @@ const NatureActivitiesSection: React.FC = () => {
             </span>{' '}
             ao Redor
           </h2>
-          
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Descubra aventuras únicas em meio à mata atlântica preservada. Cada atividade 
-            foi pensada para conectar você com a natureza exuberante do Espírito Santo.
+            Descubra aventuras únicas em meio à mata atlântica preservada. Cada
+            atividade foi pensada para conectar você com a natureza exuberante
+            de Buenos Aires.
           </p>
         </motion.div>
 
@@ -80,14 +86,14 @@ const NatureActivitiesSection: React.FC = () => {
         >
           {activities.map((activity, index) => {
             const IconComponent = activityIcons[activity.title] || TreePine;
-            
+
             return (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
                 }}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-green-200 transition-all duration-300 group"
               >
@@ -96,12 +102,12 @@ const NatureActivitiesSection: React.FC = () => {
                   <motion.img
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.6 }}
-                    src={activity.image}
+                    src={activity.image.src}
                     alt={activity.title}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  
+
                   {/* Icon Overlay */}
                   <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-3 rounded-full">
                     <IconComponent size={24} className="text-white" />
@@ -116,7 +122,7 @@ const NatureActivitiesSection: React.FC = () => {
                   <p className="text-gray-600 leading-relaxed">
                     {activity.description}
                   </p>
-                  
+
                   {/* Action Button */}
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -142,34 +148,22 @@ const NatureActivitiesSection: React.FC = () => {
         >
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="space-y-2"
-              >
+              <motion.div whileHover={{ scale: 1.05 }} className="space-y-2">
                 <div className="text-3xl font-bold text-green-600">5km</div>
                 <div className="text-gray-600">Trilhas Ecológicas</div>
               </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="space-y-2"
-              >
+
+              <motion.div whileHover={{ scale: 1.05 }} className="space-y-2">
                 <div className="text-3xl font-bold text-blue-600">3</div>
                 <div className="text-gray-600">Cachoeiras Próximas</div>
               </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="space-y-2"
-              >
+
+              <motion.div whileHover={{ scale: 1.05 }} className="space-y-2">
                 <div className="text-3xl font-bold text-green-600">50+</div>
                 <div className="text-gray-600">Espécies de Aves</div>
               </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="space-y-2"
-              >
+
+              <motion.div whileHover={{ scale: 1.05 }} className="space-y-2">
                 <div className="text-3xl font-bold text-blue-600">100%</div>
                 <div className="text-gray-600">Área Preservada</div>
               </motion.div>
@@ -191,8 +185,8 @@ const NatureActivitiesSection: React.FC = () => {
               Aventura e Tranquilidade te Esperam
             </h3>
             <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
-              Conecte-se com a natureza e descubra por que nossos hóspedes consideram 
-              esta uma experiência transformadora
+              Conecte-se com a natureza e descubra por que nossos hóspedes
+              consideram esta uma experiência transformadora
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}

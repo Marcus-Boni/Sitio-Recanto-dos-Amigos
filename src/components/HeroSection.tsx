@@ -1,19 +1,25 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ChevronRight, Play } from "lucide-react";
-import { siteInfo } from "../data/siteData";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ChevronRight, Play } from 'lucide-react';
+import { siteInfo } from '../data/siteData';
+import Image from 'next/image';
+import RocaImage1 from '../assets/images/Roça1.jpg';
+import RocaImage2 from '../assets/images/Roça2.jpeg';
+import RocaImage3 from '../assets/images/Roça3.jpg';
+import RocaImage4 from '../assets/images/Roça4.jpg';
+import { StaticImageData } from 'next/image';
 
 const HeroSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   // Array de imagens para o carrossel
-  const heroImages: string[] = [
-    "https://picsum.photos/800/600",
-    "https://picsum.photos/801/600",
-    "https://picsum.photos/802/600",
-    "https://picsum.photos/803/600",
+  const heroImages: StaticImageData[] = [
+    RocaImage1,
+    RocaImage2,
+    RocaImage3,
+    RocaImage4
   ];
 
   // Auto-play do carrossel
@@ -25,16 +31,16 @@ const HeroSection: React.FC = () => {
   }, [heroImages.length]);
 
   const scrollToContact = () => {
-    const element = document.getElementById("contact");
+    const element = document.getElementById('contact');
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const scrollToGallery = () => {
-    const element = document.getElementById("gallery");
+    const element = document.getElementById('gallery');
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -45,23 +51,31 @@ const HeroSection: React.FC = () => {
         {heroImages.map((image, index) => (
           <motion.div
             key={index}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${image})` }}
+            className="absolute inset-0"
             initial={{ opacity: 0 }}
             animate={{
               opacity: index === currentSlide ? 1 : 0,
-              scale: index === currentSlide ? 1.05 : 1,
+              scale: index === currentSlide ? 1.05 : 1
             }}
             transition={{ duration: 1.5 }}
-          />
+          >
+            <Image
+              src={image}
+              alt={`Imagem ${index + 1} do Sítio Recanto dos Amigos`}
+              fill
+              className="object-cover"
+              priority={index === 0}
+              quality={100}
+            />
+          </motion.div>
         ))}
 
         {/* Overlay Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-10" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center">
+      <div className="relative z-20 h-full flex items-center justify-center">
         <div className="container mx-auto px-4 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -87,11 +101,7 @@ const HeroSection: React.FC = () => {
               transition={{ duration: 1, delay: 0.3 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             >
-              {siteInfo.name}:{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
-                Seu Refúgio Perfeito
-              </span>{" "}
-              em Guarapari
+              {siteInfo.name}
             </motion.h1>
 
             {/* Subtitle */}
@@ -124,7 +134,7 @@ const HeroSection: React.FC = () => {
               <motion.button
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToContact}
@@ -153,7 +163,7 @@ const HeroSection: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
@@ -172,15 +182,15 @@ const HeroSection: React.FC = () => {
       </motion.div>
 
       {/* Carousel Indicators */}
-      <div className="absolute bottom-8 right-8 flex gap-2">
+      <div className="absolute bottom-8 right-8 flex gap-2 z-20">
         {heroImages.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? "bg-white scale-125"
-                : "bg-white/50 hover:bg-white/75"
+                ? 'bg-white scale-125'
+                : 'bg-white/50 hover:bg-white/75'
             }`}
           />
         ))}

@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Heart, Leaf, Home, Star, MapPin, Users } from "lucide-react";
 import Image from "next/image";
+import RocaImage2 from '../assets/images/Roça2.jpeg';
 
 const AboutSection: React.FC = () => {
   const features = [
@@ -99,8 +100,7 @@ const AboutSection: React.FC = () => {
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Descubra um refúgio perfeito onde a natureza exuberante do Espírito
-            Santo se encontra com o conforto e a hospitalidade que sua família
+            Descubra um refúgio perfeito onde a natureza exuberante de Buenos Aires se encontra com o conforto e a hospitalidade que sua família
             merece. Um lugar especial para criar memórias que durarão para
             sempre.
           </p>
@@ -157,8 +157,7 @@ const AboutSection: React.FC = () => {
             >
               <p className="text-green-800 font-medium text-lg">
                 &quot;Mais do que um local para hospedagem, somos um portal para
-                experiências autênticas em meio à natureza do Espírito
-                Santo.&quot;
+                experiências autênticas em meio à natureza de Buenos Aires.&quot;
               </p>
             </motion.div>
           </motion.div>
@@ -179,7 +178,7 @@ const AboutSection: React.FC = () => {
               <Image
                 width={600}
                 height={400}
-                src="https://picsum.photos/800/600"
+                src={RocaImage2}
                 alt="Vista do sítio com natureza exuberante"
                 className="w-full h-96 object-cover"
               />
@@ -201,7 +200,7 @@ const AboutSection: React.FC = () => {
                 </div>
                 <div className="w-px h-12 bg-gray-200" />
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">5★</div>
+                  <div className="text-2xl font-bold text-green-600">4.9★</div>
                   <div className="text-sm text-gray-600">Avaliação</div>
                 </div>
               </div>

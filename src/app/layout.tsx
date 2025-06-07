@@ -1,36 +1,42 @@
-import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata, Viewport } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin']
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin']
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://sitiorecantodosamigos.com.br' : 'http://localhost:3000'),
-  title: "Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES | Natureza e Tranquilidade",
-  description: "Venha conhecer o Sítio Recanto dos Amigos em Guarapari, ES. Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo. Reserve sua estadia no interior capixaba!",
+  metadataBase: new URL(
+    process.env.NODE_ENV === 'production'
+      ? 'https://sitiorecantodosamigos.com.br'
+      : 'http://localhost:3000'
+  ),
+  title:
+    'Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES | Natureza e Tranquilidade',
+  description:
+    'Venha conhecer o Sítio Recanto dos Amigos em Guarapari, ES. Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo. Reserve sua estadia no interior capixaba!',
   keywords: [
-    "sítio guarapari",
-    "turismo rural espírito santo",
-    "pousada guarapari",
-    "natureza es",
-    "hospedagem rural",
-    "Recanto dos Amigos",
-    "interior guarapari",
-    "agroturismo",
-    "ecoturismo",
-    "família natureza"
+    'sítio guarapari',
+    'turismo rural espírito santo',
+    'pousada guarapari',
+    'natureza es',
+    'hospedagem rural',
+    'Recanto dos Amigos',
+    'interior guarapari',
+    'agroturismo',
+    'ecoturismo',
+    'família natureza'
   ],
-  authors: [{ name: "Sítio Recanto dos Amigos" }],
-  creator: "Sítio Recanto dos Amigos",
-  publisher: "Sítio Recanto dos Amigos",
+  authors: [{ name: 'Sítio Recanto dos Amigos' }],
+  creator: 'Sítio Recanto dos Amigos',
+  publisher: 'Sítio Recanto dos Amigos',
   robots: {
     index: true,
     follow: true,
@@ -39,8 +45,8 @@ export const metadata: Metadata = {
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+      'max-snippet': -1
+    }
   },
   openGraph: {
     type: 'website',
@@ -48,30 +54,32 @@ export const metadata: Metadata = {
     url: '/',
     siteName: 'Sítio Recanto dos Amigos',
     title: 'Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES',
-    description: 'Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo no interior de Guarapari, Espírito Santo.',
+    description:
+      'Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo no interior de Guarapari, Espírito Santo.'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES',
-    description: 'Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo no interior de Guarapari, ES.',
+    description:
+      'Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo no interior de Guarapari, ES.'
   },
   verification: {
-    google: 'your-google-site-verification-code',
+    google: 'your-google-site-verification-code'
   },
   alternates: {
-    canonical: '/',
-  },
+    canonical: '/'
+  }
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-  themeColor: '#166534',
+  themeColor: '#166534'
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -80,12 +88,13 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#166534" />
         <meta name="msapplication-TileColor" content="#166534" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/leaf.svg" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="format-detection" content="telephone=yes" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning={true}
       >
         {children}
       </body>

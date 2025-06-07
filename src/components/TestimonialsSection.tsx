@@ -258,7 +258,7 @@ const TestimonialsSection: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="space-y-2"
               >
-                <div className="text-4xl font-bold">5.0</div>
+                <div className="text-4xl font-bold">4.9</div>
                 <div className="flex justify-center">
                   <StarRating rating={5} />
                 </div>
@@ -277,7 +277,7 @@ const TestimonialsSection: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="space-y-2"
               >
-                <div className="text-4xl font-bold">50+</div>
+                <div className="text-4xl font-bold">100+</div>
                 <div className="text-yellow-100">Hóspedes Satisfeitos</div>
               </motion.div>
             </div>

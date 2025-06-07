@@ -12,38 +12,59 @@ const GallerySection: React.FC = () => {
 
   const categories = [
     { id: 'all', label: 'Todas', count: gallery.length },
-    { id: 'externa', label: 'Áreas Externas', count: gallery.filter(item => item.category === 'externa').length },
-    { id: 'lazer', label: 'Lazer', count: gallery.filter(item => item.category === 'lazer').length },
-    { id: 'acomodacao', label: 'Acomodações', count: gallery.filter(item => item.category === 'acomodacao').length },
-    { id: 'natureza', label: 'Natureza', count: gallery.filter(item => item.category === 'natureza').length },
+    {
+      id: 'externa',
+      label: 'Áreas Externas',
+      count: gallery.filter((item) => item.category === 'externa').length
+    },
+    {
+      id: 'lazer',
+      label: 'Lazer',
+      count: gallery.filter((item) => item.category === 'lazer').length
+    },
+    {
+      id: 'acomodacao',
+      label: 'Acomodações',
+      count: gallery.filter((item) => item.category === 'acomodacao').length
+    },
+    {
+      id: 'natureza',
+      label: 'Natureza',
+      count: gallery.filter((item) => item.category === 'natureza').length
+    }
   ];
 
-  const filteredGallery = activeFilter === 'all' 
-    ? gallery 
-    : gallery.filter(item => item.category === activeFilter);
+  const filteredGallery =
+    activeFilter === 'all'
+      ? gallery
+      : gallery.filter((item) => item.category === activeFilter);
 
   const openLightbox = (image: GalleryItem) => {
-    setSelectedImage(image);
     document.body.style.overflow = 'hidden';
+    setSelectedImage(image);
   };
 
   const closeLightbox = () => {
+    document.body.style.overflow = '';
     setSelectedImage(null);
-    document.body.style.overflow = 'unset';
   };
 
   const navigateImage = (direction: 'prev' | 'next') => {
     if (!selectedImage) return;
-    
-    const currentIndex = filteredGallery.findIndex(item => item.id === selectedImage.id);
+
+    const currentIndex = filteredGallery.findIndex(
+      (item) => item.id === selectedImage.id
+    );
     let newIndex;
-    
+
     if (direction === 'prev') {
-      newIndex = currentIndex > 0 ? currentIndex - 1 : filteredGallery.length - 1;
+      newIndex =
+        currentIndex > 0 ? currentIndex - 1 : filteredGallery.length - 1;
     } else {
-      newIndex = currentIndex < filteredGallery.length - 1 ? currentIndex + 1 : 0;
+      newIndex =
+        currentIndex < filteredGallery.length - 1 ? currentIndex + 1 : 0;
     }
-    
+
     setSelectedImage(filteredGallery[newIndex]);
   };
 
@@ -89,17 +110,17 @@ const GallerySection: React.FC = () => {
             <Camera size={16} />
             Galeria de Fotos
           </motion.div>
-          
+
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Conheça Nossos{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
               Espaços
             </span>
           </h2>
-          
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Cada canto do nosso sítio foi pensado para proporcionar momentos únicos. 
-            Explore através das imagens e imagine-se aqui.
+            Cada canto do nosso sítio foi pensado para proporcionar momentos
+            únicos. Explore através das imagens e imagine-se aqui.
           </p>
         </motion.div>
 
@@ -125,11 +146,11 @@ const GallerySection: React.FC = () => {
             >
               <Filter size={16} />
               {category.label}
-              <span className={`text-xs px-2 py-1 rounded-full ${
-                activeFilter === category.id 
-                  ? 'bg-white/20' 
-                  : 'bg-gray-100'
-              }`}>
+              <span
+                className={`text-xs px-2 py-1 rounded-full ${
+                  activeFilter === category.id ? 'bg-white/20' : 'bg-gray-100'
+                }`}
+              >
                 {category.count}
               </span>
             </motion.button>
@@ -138,18 +159,21 @@ const GallerySection: React.FC = () => {
 
         {/* Gallery Grid */}
         <motion.div
+          key={activeFilter}
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
           className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
         >
           <AnimatePresence>
-            {filteredGallery.map((image) => (
+            {filteredGallery.map((image, index) => (
               <motion.div
-                key={image.id}
+                key={`${activeFilter}-${image.id}`}
                 variants={itemVariants}
-                layout
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.02 }}
                 className="relative group cursor-pointer overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={() => openLightbox(image)}
@@ -158,13 +182,13 @@ const GallerySection: React.FC = () => {
                   <motion.img
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.6 }}
-                    src={image.src}
+                    src={image.src.src}
                     alt={image.alt}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
                 </div>
-                
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">
@@ -228,7 +252,7 @@ const GallerySection: React.FC = () => {
                 <Image
                   width={800}
                   height={600}
-                  src={selectedImage.src}
+                  src={selectedImage.src.src}
                   alt={selectedImage.alt}
                   className="max-w-full max-h-full object-contain rounded-lg"
                 />
