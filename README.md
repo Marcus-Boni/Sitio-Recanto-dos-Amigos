@@ -262,7 +262,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 <div align="center">
 
-**Desenvolvido com ❤️ para conectar pessoas à natureza**
+**Desenvolvido com ❤️**
 
 [⬆ Voltar ao topo](#top)
 
