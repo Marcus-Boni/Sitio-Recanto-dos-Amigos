@@ -4,18 +4,29 @@ import './globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: [
+    'system-ui',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'arial'
+  ]
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
+  fallback: ['ui-monospace', 'SFMono-Regular', 'Consolas', 'monospace']
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    'https://sitio-recanto-dos-amigos.vercel.app/'
-  ),
+  metadataBase: new URL('https://sitio-recanto-dos-amigos.vercel.app/'),
   title:
     'Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES | Natureza e Tranquilidade',
   description:
@@ -72,8 +83,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 5.0, // Allow user zooming up to 5x
-  themeColor: '#166534'
+  minimumScale: 1,
+  maximumScale: 5.0,
+  userScalable: true,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#166534' },
+    { media: '(prefers-color-scheme: dark)', color: '#166534' }
+  ]
 };
 
 export default function RootLayout({
@@ -86,9 +103,22 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#166534" />
         <meta name="msapplication-TileColor" content="#166534" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <link rel="icon" href="/leaf.svg" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="format-detection" content="telephone=yes" />
+
+        {/* Performance hints */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+        <link rel="dns-prefetch" href="https://maps.gstatic.com" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

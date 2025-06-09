@@ -50,6 +50,11 @@ Esta é uma landing page completa e responsiva desenvolvida para promover um sí
 - **TailwindCSS 4.0**: Estilização utilitária moderna
 - **Lazy Loading**: Carregamento otimizado de componentes
 - **Image Optimization**: Imagens otimizadas automaticamente
+- **Service Worker**: Cache inteligente para performance offline
+- **Code Splitting**: Divisão automática de código para carregamento mais rápido
+- **Critical CSS**: CSS crítico inline para renderização mais rápida
+- **Resource Preloading**: Pré-carregamento de recursos críticos
+- **WebP/AVIF**: Formatos de imagem modernos para menor tamanho
 
 ### 📱 **Funcionalidades Interativas**
 - **Carrossel Hero**: Auto-play com controles manuais
@@ -57,6 +62,9 @@ Esta é uma landing page completa e responsiva desenvolvida para promover um sí
 - **Lightbox**: Visualização ampliada de imagens
 - **Formulário Validado**: Validação em tempo real com React Hook Form
 - **Menu Responsivo**: Navegação adaptativa para mobile
+- **Touch Optimized**: Otimizado para dispositivos Android e iOS
+- **Smooth Scrolling**: Rolagem suave entre seções
+- **Loading States**: Estados de carregamento elegantes
 
 ## 🛠️ Tecnologias Utilizadas
 

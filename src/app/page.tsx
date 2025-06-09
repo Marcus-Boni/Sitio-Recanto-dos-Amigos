@@ -1,24 +1,32 @@
 // filepath: c:\Users\mgalv\Projetos-Programção\Projetos Treino\landing_page_sitio\src\app\page.tsx
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 
-// Importação dos componentes principais
+// Critical components loaded immediately
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 
-// Importação lazy dos componentes para otimização de performance
+// Loading component for better UX
+const LoadingSection = ({ className = '' }: { className?: string }) => (
+  <div
+    className={`min-h-[400px] flex items-center justify-center bg-gray-50 ${className}`}
+  >
+    <div className="flex flex-col items-center gap-4">
+      <div className="w-8 h-8 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+      <p className="text-gray-600">Carregando...</p>
+    </div>
+  </div>
+);
+
+// Optimized lazy loading with better loading states
 const AccommodationsSection = dynamic(
   () => import('@/components/AccommodationsSection'),
   {
     ssr: false,
-    loading: () => (
-      <div className="min-h-screen flex items-center justify-center">
-        Carregando...
-      </div>
-    )
+    loading: () => <LoadingSection />
   }
 );
 
@@ -26,28 +34,20 @@ const NatureActivitiesSection = dynamic(
   () => import('@/components/NatureActivitiesSection'),
   {
     ssr: false,
-    loading: () => (
-      <div className="min-h-screen flex items-center justify-center">
-        Carregando...
-      </div>
-    )
+    loading: () => <LoadingSection className="bg-green-50" />
   }
 );
 
 const GallerySection = dynamic(() => import('@/components/GallerySection'), {
   ssr: false,
-  loading: () => <div className="min-h-screen bg-gray-50" />
+  loading: () => <LoadingSection />
 });
 
 const TestimonialsSection = dynamic(
   () => import('@/components/TestimonialsSection'),
   {
     ssr: false,
-    loading: () => (
-      <div className="min-h-screen flex items-center justify-center">
-        Carregando...
-      </div>
-    )
+    loading: () => <LoadingSection className="bg-blue-50" />
   }
 );
 
@@ -55,65 +55,63 @@ const LocationContactSection = dynamic(
   () => import('@/components/LocationContactSection'),
   {
     ssr: false,
-    loading: () => (
-      <div className="min-h-screen flex items-center justify-center">
-        Carregando...
-      </div>
-    )
+    loading: () => <LoadingSection />
   }
 );
 
 const Footer = dynamic(() => import('@/components/Footer'), {
-  ssr: false, // Disable SSR for Footer to avoid hydration issues if it contains client-specific logic
-  loading: () => <div className="min-h-96 bg-green-900">Carregando...</div>
+  ssr: false,
+  loading: () => <div className="min-h-96 bg-green-900"></div>
 });
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header com navegação fixa */}
       <Header />
 
-      {/* Conteúdo principal */}
       <main className="relative">
-        {/* Seção Hero - Primeira impressão */}
         <section id="inicio">
           <HeroSection />
         </section>
 
-        {/* Seção Sobre - Informações sobre o sítio */}
         <section id="sobre">
           <AboutSection />
         </section>
 
-        {/* Seção Acomodações - Estrutura e comodidades */}
-        <section id="acomodacoes">
-          <AccommodationsSection />
-        </section>
+        <Suspense fallback={<LoadingSection />}>
+          <section id="acomodacoes">
+            <AccommodationsSection />
+          </section>
+        </Suspense>
 
-        {/* Seção Atividades na Natureza */}
-        <section id="atividades">
-          <NatureActivitiesSection />
-        </section>
+        <Suspense fallback={<LoadingSection className="bg-green-50" />}>
+          <section id="atividades">
+            <NatureActivitiesSection />
+          </section>
+        </Suspense>
 
-        {/* Seção Galeria de Fotos */}
-        <section id="galeria">
-          <GallerySection />
-        </section>
+        <Suspense fallback={<LoadingSection />}>
+          <section id="galeria">
+            <GallerySection />
+          </section>
+        </Suspense>
 
-        {/* Seção Avaliações dos Hóspedes */}
-        <section id="avaliacoes">
-          <TestimonialsSection />
-        </section>
+        <Suspense fallback={<LoadingSection className="bg-blue-50" />}>
+          <section id="avaliacoes">
+            <TestimonialsSection />
+          </section>
+        </Suspense>
 
-        {/* Seção Localização e Contato */}
-        <section id="contato">
-          <LocationContactSection />
-        </section>
+        <Suspense fallback={<LoadingSection />}>
+          <section id="contato">
+            <LocationContactSection />
+          </section>
+        </Suspense>
       </main>
 
-      {/* Footer */}
-      <Footer />
+      <Suspense fallback={<div className="min-h-96 bg-green-900"></div>}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
