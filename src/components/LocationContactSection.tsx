@@ -2,13 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  MapPin,
-  Phone, Instagram,
-  Link,
-  MessageCircle
-} from 'lucide-react';
+import { MapPin, Phone, Instagram, Link, MessageCircle } from 'lucide-react';
 import { siteInfo } from '../data/siteData';
+import { useTheme } from '../contexts/ThemeContext';
 
 // interface ContactFormData {
 //   name: string;
@@ -21,6 +17,8 @@ import { siteInfo } from '../data/siteData';
 // }
 
 const LocationContactSection: React.FC = () => {
+  const { theme } = useTheme();
+
   // const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   // const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
@@ -70,7 +68,11 @@ const LocationContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-b from-white to-green-50"
+      className={`py-20 ${
+        theme === 'dark'
+          ? 'bg-gradient-to-b from-gray-900 to-gray-800'
+          : 'bg-gradient-to-b from-white to-green-50'
+      }`}
     >
       <div className="container mx-auto px-4">
         {/* Header */}
@@ -86,20 +88,30 @@ const LocationContactSection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6"
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              theme === 'dark'
+                ? 'bg-green-900/50 text-green-300'
+                : 'bg-green-100 text-green-800'
+            }`}
           >
             <MapPin size={16} />
             Localização e Contato
-          </motion.div>
-
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          </motion.div>{' '}
+          <h2
+            className={`text-4xl md:text-5xl font-bold mb-6 ${
+              theme === 'dark' ? 'text-white' : 'text-gray-900'
+            }`}
+          >
             Vamos Planejar Sua{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
               Estadia Perfeita
             </span>
           </h2>
-
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p
+            className={`text-xl max-w-3xl mx-auto leading-relaxed ${
+              theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+            }`}
+          >
             Entre em contato conosco e garanta os melhores momentos para sua
             família em meio à natureza exuberante de Guarapari.
           </p>
@@ -113,47 +125,96 @@ const LocationContactSection: React.FC = () => {
             viewport={{ once: true }}
             className="grid lg:grid-cols-2 gap-8 lg:gap-12"
           >
+            {' '}
             {/* Contact Information */}
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <div
+              className={`p-8 rounded-2xl shadow-xl border ${
+                theme === 'dark'
+                  ? 'bg-gray-800 border-gray-700'
+                  : 'bg-white border-gray-100'
+              }`}
+            >
+              <h3
+                className={`text-2xl font-bold mb-6 ${
+                  theme === 'dark' ? 'text-white' : 'text-gray-900'
+                }`}
+              >
                 Informações de Contato
               </h3>
-
               <div className="space-y-6">
+                {' '}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="flex items-start gap-4 p-4 bg-green-50 rounded-lg"
+                  className={`flex items-start gap-4 p-4 rounded-lg ${
+                    theme === 'dark' ? 'bg-green-900/30' : 'bg-green-50'
+                  }`}
                 >
-                  <div className="bg-green-100 p-3 rounded-lg">
+                  <div
+                    className={`p-3 rounded-lg ${
+                      theme === 'dark' ? 'bg-green-800' : 'bg-green-100'
+                    }`}
+                  >
                     <MapPin className="text-green-600" size={24} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">
+                    <h4
+                      className={`font-semibold mb-1 ${
+                        theme === 'dark' ? 'text-white' : 'text-gray-900'
+                      }`}
+                    >
                       Endereço
                     </h4>
-                    <p className="text-gray-600">{siteInfo.address}</p>
+                    <p
+                      className={`${
+                        theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+                      }`}
+                    >
+                      {siteInfo.address}
+                    </p>
                   </div>
                 </motion.div>
-
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="flex items-start gap-4 p-4 bg-blue-50 rounded-lg"
+                  className={`flex items-start gap-4 p-4 rounded-lg ${
+                    theme === 'dark' ? 'bg-blue-900/30' : 'bg-blue-50'
+                  }`}
                 >
-                  <div className="bg-blue-100 p-3 rounded-lg">
+                  <div
+                    className={`p-3 rounded-lg ${
+                      theme === 'dark' ? 'bg-blue-800' : 'bg-blue-100'
+                    }`}
+                  >
                     <Phone className="text-blue-600" size={24} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">
+                    <h4
+                      className={`font-semibold mb-1 ${
+                        theme === 'dark' ? 'text-white' : 'text-gray-900'
+                      }`}
+                    >
                       Telefone
                     </h4>
-                    <p className="text-gray-600">{siteInfo.phone}</p>
+                    <p
+                      className={`${
+                        theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+                      }`}
+                    >
+                      {siteInfo.phone}
+                    </p>
                   </div>
                 </motion.div>
-              </div>
-
+              </div>{' '}
               {/* Social Media */}
-              <div className="mt-8 pt-6 border-t border-gray-200">
-                <h4 className="font-semibold text-gray-900 mb-4">
+              <div
+                className={`mt-8 pt-6 border-t ${
+                  theme === 'dark' ? 'border-gray-700' : 'border-gray-200'
+                }`}
+              >
+                <h4
+                  className={`font-semibold mb-4 ${
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                  }`}
+                >
                   Redes Sociais
                 </h4>
                 <div className="flex gap-4">
@@ -165,18 +226,31 @@ const LocationContactSection: React.FC = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`bg-gray-100 p-3 rounded-lg text-gray-600 ${social.color} transition-colors`}
+                      className={`p-3 rounded-lg transition-colors ${
+                        theme === 'dark'
+                          ? 'bg-gray-700 text-gray-300'
+                          : 'bg-gray-100 text-gray-600'
+                      } ${social.color}`}
                     >
                       <social.icon size={24} />
                     </motion.a>
                   ))}
                 </div>
               </div>
-            </div>
-
+            </div>{' '}
             {/* Map */}
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <div
+              className={`p-8 rounded-2xl shadow-xl border ${
+                theme === 'dark'
+                  ? 'bg-gray-800 border-gray-700'
+                  : 'bg-white border-gray-100'
+              }`}
+            >
+              <h3
+                className={`text-2xl font-bold mb-6 ${
+                  theme === 'dark' ? 'text-white' : 'text-gray-900'
+                }`}
+              >
                 Localização
               </h3>{' '}
               <div className="relative h-80 bg-gray-200 rounded-lg overflow-hidden">
@@ -191,8 +265,16 @@ const LocationContactSection: React.FC = () => {
                   title="Localização do Sítio Recanto dos Amigos"
                 />
               </div>
-              <div className="mt-6 p-4 bg-green-50 rounded-lg">
-                <p className="text-sm text-green-800 text-center font-medium">
+              <div
+                className={`mt-6 p-4 rounded-lg ${
+                  theme === 'dark' ? 'bg-green-900/30' : 'bg-green-50'
+                }`}
+              >
+                <p
+                  className={`text-sm text-center font-medium ${
+                    theme === 'dark' ? 'text-green-300' : 'text-green-800'
+                  }`}
+                >
                   📍 Clique no mapa para abrir no Google Maps e obter direções
                   detalhadas
                 </p>

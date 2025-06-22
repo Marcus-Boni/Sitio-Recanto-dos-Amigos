@@ -88,7 +88,8 @@ export const accommodations: Accommodation[] = [
       'Casa totalmente equipada',
       'Banheiros privativos em cada suíte',
       'Área de estar espaçosa',
-      'Varanda com vista panorâmica'
+      'Varanda com vista panorâmica',
+      'Wi-Fi gratuito em todo o chalé',
     ]
   }
 ];

@@ -14,8 +14,11 @@ import {
   CheckCircle
 } from 'lucide-react';
 import { accommodations, amenities } from '../data/siteData';
+import { useTheme } from '../contexts/ThemeContext';
 
 const AccommodationsSection: React.FC = () => {
+  const { isDark } = useTheme();
+
   const amenityIcons: Record<
     string,
     React.ComponentType<{ size?: number; className?: string }>
@@ -50,9 +53,13 @@ const AccommodationsSection: React.FC = () => {
       }
     }
   };
-
   return (
-    <section id="structure" className="py-20 bg-white">
+    <section
+      id="structure"
+      className={`py-20 transition-colors duration-300 ${
+        isDark ? 'bg-gradient-to-b from-gray-900 to-gray-800' : 'bg-white'
+      }`}
+    >
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -67,26 +74,35 @@ const AccommodationsSection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6"
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark
+                ? 'bg-blue-800/50 text-blue-300 border border-blue-700'
+                : 'bg-blue-100 text-blue-800'
+            }`}
           >
             <Home size={16} />
             Nossa Estrutura
-          </motion.div>
-
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          </motion.div>{' '}
+          <h2
+            className={`text-4xl md:text-5xl font-bold mb-6 ${
+              isDark ? 'text-white' : 'text-gray-900'
+            }`}
+          >
             Estrutura e{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
               Comodidades
             </span>
-          </h2>
-
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          </h2>{' '}
+          <p
+            className={`text-xl max-w-3xl mx-auto leading-relaxed ${
+              isDark ? 'text-gray-300' : 'text-gray-600'
+            }`}
+          >
             Desenhado para proporcionar máximo conforto e diversão para toda a
             família. Cada espaço foi pensado para criar momentos especiais e
             memórias inesquecíveis.
           </p>
-        </motion.div>
-
+        </motion.div>{' '}
         {/* Accommodations */}
         <motion.div
           variants={containerVariants}
@@ -101,16 +117,30 @@ const AccommodationsSection: React.FC = () => {
               variants={itemVariants}
               whileHover={{
                 scale: 1.02,
-                boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
+                boxShadow: isDark
+                  ? '0 20px 40px rgba(0,0,0,0.3)'
+                  : '0 20px 40px rgba(0,0,0,0.1)'
               }}
-              className="bg-gradient-to-br from-blue-50 to-green-50 p-8 rounded-2xl border border-gray-100 hover:border-blue-200 transition-all duration-300 max-w-2xl w-full"
+              className={`p-8 rounded-2xl border transition-all duration-300 max-w-2xl w-full ${
+                isDark
+                  ? 'bg-gray-800 border-gray-700 hover:border-blue-600'
+                  : 'bg-gradient-to-br from-blue-50 to-green-50 border-gray-100 hover:border-blue-200'
+              }`}
             >
               <div className="text-center mb-6">
                 <div className="text-5xl mb-4">{accommodation.icon}</div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                <h3
+                  className={`text-3xl font-bold mb-3 ${
+                    isDark ? 'text-white' : 'text-gray-900'
+                  }`}
+                >
                   {accommodation.title}
                 </h3>
-                <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                <p
+                  className={`text-lg leading-relaxed mb-6 ${
+                    isDark ? 'text-gray-300' : 'text-gray-600'
+                  }`}
+                >
                   {accommodation.description}
                 </p>
               </div>
@@ -122,21 +152,30 @@ const AccommodationsSection: React.FC = () => {
                       size={18}
                       className="text-green-600 flex-shrink-0"
                     />
-                    <span className="text-gray-700">{feature}</span>
+                    <span
+                      className={isDark ? 'text-gray-300' : 'text-gray-700'}
+                    >
+                      {feature}
+                    </span>
                   </div>
                 ))}
               </div>
 
               <div className="text-center">
-                <div className="flex items-center justify-center gap-2 text-green-600 font-medium bg-green-50 py-3 px-4 rounded-lg">
+                <div
+                  className={`flex items-center justify-center gap-2 font-medium py-3 px-4 rounded-lg ${
+                    isDark
+                      ? 'text-green-400 bg-green-900/50'
+                      : 'text-green-600 bg-green-50'
+                  }`}
+                >
                   <CheckCircle size={16} />
                   <span>Disponível para reserva</span>
                 </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
+        </motion.div>{' '}
         {/* Amenities Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -145,15 +184,23 @@ const AccommodationsSection: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">
+          {' '}
+          <h3
+            className={`text-3xl font-bold mb-4 ${
+              isDark ? 'text-white' : 'text-gray-900'
+            }`}
+          >
             Comodidades Completas
-          </h3>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          </h3>{' '}
+          <p
+            className={`text-lg max-w-2xl mx-auto ${
+              isDark ? 'text-gray-300' : 'text-gray-600'
+            }`}
+          >
             Tudo que você precisa para uma estadia perfeita, desde
             entretenimento até conexão com a natureza.
           </p>
-        </motion.div>
-
+        </motion.div>{' '}
         {/* Amenities Grid */}
         <motion.div
           variants={containerVariants}
@@ -171,15 +218,32 @@ const AccommodationsSection: React.FC = () => {
                 variants={itemVariants}
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
+                  boxShadow: isDark
+                    ? '0 10px 25px rgba(0,0,0,0.3)'
+                    : '0 10px 25px rgba(0,0,0,0.1)'
                 }}
-                className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:border-green-200 transition-all duration-300 group"
+                className={`p-6 rounded-xl shadow-lg border transition-all duration-300 group ${
+                  isDark
+                    ? 'bg-gray-800 border-gray-700 hover:border-green-600'
+                    : 'bg-white border-gray-100 hover:border-green-200'
+                }`}
               >
                 <div className="text-center">
-                  <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
+                  {' '}
+                  <div
+                    className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors ${
+                      isDark
+                        ? 'bg-green-900/50 group-hover:bg-green-800/70'
+                        : 'bg-green-100 group-hover:bg-green-200'
+                    }`}
+                  >
                     <IconComponent size={24} className="text-green-600" />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  </div>{' '}
+                  <h4
+                    className={`font-semibold mb-2 ${
+                      isDark ? 'text-white' : 'text-gray-900'
+                    }`}
+                  >
                     {amenity.name}
                   </h4>
                   <div className="w-12 h-1 bg-gradient-to-r from-green-600 to-blue-600 rounded-full mx-auto" />
@@ -188,7 +252,6 @@ const AccommodationsSection: React.FC = () => {
             );
           })}
         </motion.div>
-
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

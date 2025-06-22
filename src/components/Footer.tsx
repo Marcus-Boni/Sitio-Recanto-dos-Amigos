@@ -12,8 +12,11 @@ import {
   ArrowUp
 } from 'lucide-react';
 import { siteData } from '@/data/siteData';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Footer: React.FC = () => {
+  const { theme } = useTheme();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -21,7 +24,13 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-b from-green-900 to-green-950 text-white relative overflow-hidden">
+    <footer
+      className={`text-white relative overflow-hidden ${
+        theme === 'dark'
+          ? 'bg-gradient-to-b from-gray-900 to-black'
+          : 'bg-gradient-to-b from-green-900 to-green-950'
+      }`}
+    >
       {/* Background Pattern */}
       <div className="relative">
         {/* Main Footer Content */}
@@ -35,10 +44,19 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
               className="lg:col-span-2"
             >
-              <h3 className="text-2xl font-bold mb-4 text-green-100">
+              {' '}
+              <h3
+                className={`text-2xl font-bold mb-4 ${
+                  theme === 'dark' ? 'text-gray-100' : 'text-green-100'
+                }`}
+              >
                 {siteData.siteInfo.name}
               </h3>
-              <p className="text-green-200 mb-6 leading-relaxed">
+              <p
+                className={`mb-6 leading-relaxed ${
+                  theme === 'dark' ? 'text-gray-300' : 'text-green-200'
+                }`}
+              >
                 {siteData.siteInfo.description}
               </p>
               <div className="flex flex-wrap gap-4">
@@ -71,61 +89,75 @@ const Footer: React.FC = () => {
                 </a>
               </div>
             </motion.div>
-
-            {/* Contact Info */}
+            {/* Contact Info */}{' '}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold mb-4 text-green-100">
+              <h4
+                className={`text-lg font-semibold mb-4 ${
+                  theme === 'dark' ? 'text-gray-100' : 'text-green-100'
+                }`}
+              >
                 Contato
               </h4>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <MapPin
                     size={18}
-                    className="text-green-300 mt-1 flex-shrink-0"
+                    className={`mt-1 flex-shrink-0 ${
+                      theme === 'dark' ? 'text-gray-400' : 'text-green-300'
+                    }`}
                   />
                   <div>
-                    <p className="text-green-200 text-sm">
+                    <p
+                      className={`text-sm ${
+                        theme === 'dark' ? 'text-gray-300' : 'text-green-200'
+                      }`}
+                    >
                       {siteData.siteInfo.address}
                     </p>
-                    <p className="text-green-300 text-sm font-medium">
+                    <p
+                      className={`text-sm font-medium ${
+                        theme === 'dark' ? 'text-gray-200' : 'text-green-300'
+                      }`}
+                    >
                       {siteData.siteInfo.location}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone size={18} className="text-green-300 flex-shrink-0" />
+                  <Phone
+                    size={18}
+                    className={`flex-shrink-0 ${
+                      theme === 'dark' ? 'text-gray-400' : 'text-green-300'
+                    }`}
+                  />
                   <a
                     href={`tel:${siteData.siteInfo.phone}`}
-                    className="text-green-200 text-sm hover:text-white transition-colors"
+                    className={`text-sm hover:text-white transition-colors ${
+                      theme === 'dark' ? 'text-gray-300' : 'text-green-200'
+                    }`}
                   >
                     {siteData.siteInfo.phone}
                   </a>
                 </div>
-                {/* <div className="flex items-center gap-3">
-                  <Mail size={18} className="text-green-300 flex-shrink-0" />
-                  <a 
-                    href={`mailto:${siteData.siteInfo.email}`}
-                    className="text-green-200 text-sm hover:text-white transition-colors"
-                  >
-                    {siteData.siteInfo.email}
-                  </a>
-                </div> */}
               </div>
             </motion.div>
-
-            {/* Quick Links */}
+            {/* Quick Links */}{' '}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold mb-4 text-green-100">
+              <h4
+                className={`text-lg font-semibold mb-4 ${
+                  theme === 'dark' ? 'text-gray-100' : 'text-green-100'
+                }`}
+              >
                 Navegação
               </h4>
               <nav className="space-y-2">
@@ -144,7 +176,9 @@ const Footer: React.FC = () => {
                       .toLowerCase()
                       .replace('ç', 'c')
                       .replace('õ', 'o')}`}
-                    className="block text-green-200 text-sm hover:text-white transition-colors duration-300"
+                    className={`block text-sm hover:text-white transition-colors duration-300 ${
+                      theme === 'dark' ? 'text-gray-300' : 'text-green-200'
+                    }`}
                   >
                     {item}
                   </a>
@@ -152,13 +186,20 @@ const Footer: React.FC = () => {
               </nav>
             </motion.div>
           </div>
-        </div>
-
+        </div>{' '}
         {/* Bottom Bar */}
-        <div className="border-t border-green-800">
+        <div
+          className={`border-t ${
+            theme === 'dark' ? 'border-gray-800' : 'border-green-800'
+          }`}
+        >
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="flex items-center gap-2 text-green-200 text-sm">
+              <div
+                className={`flex items-center gap-2 text-sm ${
+                  theme === 'dark' ? 'text-gray-300' : 'text-green-200'
+                }`}
+              >
                 <span>
                   © {currentYear} {siteData.siteInfo.name}. Todos os direitos
                   reservados.
@@ -166,18 +207,25 @@ const Footer: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                <span className="text-green-300 text-sm flex items-center gap-1">
+                <span
+                  className={`text-sm flex items-center gap-1 ${
+                    theme === 'dark' ? 'text-gray-300' : 'text-green-300'
+                  }`}
+                >
                   Criado com{' '}
                   <Heart
                     size={14}
                     className="text-red-400"
                     fill="currentColor"
-                  />por
+                  />
+                  por
                   <a
                     href="https://www.linkedin.com/in/marcus-boni-729a52243"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-green-300 hover:text-white transition-colors duration-300 underline"
+                    className={`hover:text-white transition-colors duration-300 underline ${
+                      theme === 'dark' ? 'text-gray-300' : 'text-green-300'
+                    }`}
                     title="Perfil do LinkedIn de Marcus Boni"
                   >
                     Marcus
@@ -186,7 +234,11 @@ const Footer: React.FC = () => {
 
                 <button
                   onClick={scrollToTop}
-                  className="bg-green-700 hover:bg-green-600 p-2 rounded-full transition-colors duration-300 group"
+                  className={`p-2 rounded-full transition-colors duration-300 group ${
+                    theme === 'dark'
+                      ? 'bg-gray-700 hover:bg-gray-600'
+                      : 'bg-green-700 hover:bg-green-600'
+                  }`}
                   aria-label="Voltar ao topo"
                 >
                   <ArrowUp

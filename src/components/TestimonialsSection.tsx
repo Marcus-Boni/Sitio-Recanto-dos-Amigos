@@ -4,10 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 import { testimonials } from '../data/siteData';
+import { useTheme } from '../contexts/ThemeContext';
 
 const TestimonialsSection: React.FC = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState<number>(0);
   const [direction, setDirection] = useState<number>(0);
+  const { theme } = useTheme();
 
   // Auto-play carousel
   useEffect(() => {
@@ -70,7 +72,11 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section
       id="testimonials"
-      className="py-20 bg-gradient-to-b from-blue-50 to-purple-50"
+      className={`py-20 ${
+        theme === 'dark'
+          ? 'bg-gradient-to-b from-gray-900 to-gray-800'
+          : 'bg-gradient-to-b from-blue-50 to-purple-50'
+      }`}
     >
       <div className="container mx-auto px-4">
         {/* Header */}
@@ -86,21 +92,31 @@ const TestimonialsSection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-6"
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              theme === 'dark'
+                ? 'bg-yellow-900/50 text-yellow-300'
+                : 'bg-yellow-100 text-yellow-800'
+            }`}
           >
             <Heart size={16} />
             Avaliações dos Hóspedes
-          </motion.div>
-
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          </motion.div>{' '}
+          <h2
+            className={`text-4xl md:text-5xl font-bold mb-6 ${
+              theme === 'dark' ? 'text-white' : 'text-gray-900'
+            }`}
+          >
             O Que Nossos{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-orange-600">
               Hóspedes
             </span>{' '}
             Dizem
           </h2>
-
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p
+            className={`text-xl max-w-3xl mx-auto leading-relaxed ${
+              theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+            }`}
+          >
             Experiências reais de famílias que já viveram momentos únicos em
             nosso sítio. Cada avaliação reflete nosso compromisso com a
             excelência.
@@ -128,7 +144,11 @@ const TestimonialsSection: React.FC = () => {
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100 text-center"
+                  className={`p-8 md:p-12 rounded-2xl shadow-xl border text-center ${
+                    theme === 'dark'
+                      ? 'bg-gray-800 border-gray-700'
+                      : 'bg-white border-gray-100'
+                  }`}
                 >
                   {/* Quote Icon */}
                   <motion.div
@@ -157,7 +177,9 @@ const TestimonialsSection: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 font-medium italic"
+                    className={`text-lg md:text-xl leading-relaxed mb-8 font-medium italic ${
+                      theme === 'dark' ? 'text-gray-200' : 'text-gray-700'
+                    }`}
                   >
                     &quot;{testimonials[currentTestimonial].comment}&quot;
                   </motion.p>
@@ -169,31 +191,56 @@ const TestimonialsSection: React.FC = () => {
                     transition={{ delay: 0.5 }}
                     className="space-y-2"
                   >
-                    <h4 className="text-xl font-bold text-gray-900">
+                    {' '}
+                    <h4
+                      className={`text-xl font-bold ${
+                        theme === 'dark' ? 'text-white' : 'text-gray-900'
+                      }`}
+                    >
                       {testimonials[currentTestimonial].name}
                     </h4>
-                    <p className="text-gray-500">
+                    <p
+                      className={`${
+                        theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+                      }`}
+                    >
                       {testimonials[currentTestimonial].date}
                     </p>
                   </motion.div>
                 </motion.div>
               </motion.div>
             </AnimatePresence>
-          </div>
-
+          </div>{' '}
           {/* Navigation Buttons */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-100"
+            className={`absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border ${
+              theme === 'dark'
+                ? 'bg-gray-800 border-gray-700'
+                : 'bg-white border-gray-100'
+            }`}
           >
-            <ChevronLeft size={24} className="text-gray-600" />
+            <ChevronLeft
+              size={24}
+              className={`${
+                theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+              }`}
+            />
           </button>
-
           <button
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-100"
+            className={`absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border ${
+              theme === 'dark'
+                ? 'bg-gray-800 border-gray-700'
+                : 'bg-white border-gray-100'
+            }`}
           >
-            <ChevronRight size={24} className="text-gray-600" />
+            <ChevronRight
+              size={24}
+              className={`${
+                theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+              }`}
+            />
           </button>
         </div>
 
@@ -231,25 +278,45 @@ const TestimonialsSection: React.FC = () => {
                 scale: 1.02,
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}
-              className={`bg-white p-6 rounded-xl shadow-lg border transition-all duration-300 cursor-pointer ${
-                index === currentTestimonial
-                  ? 'border-yellow-300 ring-2 ring-yellow-200'
-                  : 'border-gray-100 hover:border-yellow-200'
+              className={`p-6 rounded-xl shadow-lg border transition-all duration-300 cursor-pointer ${
+                theme === 'dark'
+                  ? `bg-gray-800 ${
+                      index === currentTestimonial
+                        ? 'border-yellow-500 ring-2 ring-yellow-400/30'
+                        : 'border-gray-700 hover:border-yellow-500'
+                    }`
+                  : `bg-white ${
+                      index === currentTestimonial
+                        ? 'border-yellow-300 ring-2 ring-yellow-200'
+                        : 'border-gray-100 hover:border-yellow-200'
+                    }`
               }`}
               onClick={() => goToTestimonial(index)}
             >
               <div className="flex justify-between items-start mb-3">
-                <StarRating rating={testimonial.rating} />
-                <span className="text-xs text-gray-500">
+                <StarRating rating={testimonial.rating} />{' '}
+                <span
+                  className={`text-xs ${
+                    theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+                  }`}
+                >
                   {testimonial.date}
                 </span>
               </div>
 
-              <p className="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-3">
+              <p
+                className={`text-sm leading-relaxed mb-4 line-clamp-3 ${
+                  theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                }`}
+              >
                 &quot;{testimonial.comment}&quot;
               </p>
 
-              <h4 className="font-semibold text-gray-900">
+              <h4
+                className={`font-semibold ${
+                  theme === 'dark' ? 'text-white' : 'text-gray-900'
+                }`}
+              >
                 {testimonial.name}
               </h4>
             </motion.div>

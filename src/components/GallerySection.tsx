@@ -4,11 +4,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, X, ChevronLeft, ChevronRight, Filter } from 'lucide-react';
 import { gallery, type GalleryItem } from '../data/siteData';
+import { useTheme } from '../contexts/ThemeContext';
 import Image from 'next/image';
 
 const GallerySection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>('all');
+  const { theme } = useTheme();
 
   const categories = [
     { id: 'all', label: 'Todas', count: gallery.length },
@@ -90,7 +92,10 @@ const GallerySection: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-gray-50">
+    <section
+      id="gallery"
+      className={`py-20 ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-50'}`}
+    >
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -105,20 +110,32 @@ const GallerySection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium mb-6"
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              theme === 'dark'
+                ? 'bg-purple-900/50 text-purple-300'
+                : 'bg-purple-100 text-purple-800'
+            }`}
           >
             <Camera size={16} />
             Galeria de Fotos
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2
+            className={`text-4xl md:text-5xl font-bold mb-6 ${
+              theme === 'dark' ? 'text-white' : 'text-gray-900'
+            }`}
+          >
             Conheça Nossos{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
               Espaços
             </span>
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p
+            className={`text-xl max-w-3xl mx-auto leading-relaxed ${
+              theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+            }`}
+          >
             Cada canto do nosso sítio foi pensado para proporcionar momentos
             únicos. Explore através das imagens e imagine-se aqui.
           </p>
@@ -141,6 +158,8 @@ const GallerySection: React.FC = () => {
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
                 activeFilter === category.id
                   ? 'bg-purple-600 text-white shadow-lg'
+                  : theme === 'dark'
+                  ? 'bg-gray-800 text-gray-300 hover:bg-purple-900/50 border border-gray-700'
                   : 'bg-white text-gray-600 hover:bg-purple-50 border border-gray-200'
               }`}
             >
@@ -175,7 +194,9 @@ const GallerySection: React.FC = () => {
                 exit="hidden"
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.02 }}
-                className="relative group cursor-pointer overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+                className={`relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${
+                  theme === 'dark' ? 'bg-gray-800' : 'bg-white'
+                }`}
                 onClick={() => openLightbox(image)}
               >
                 <div className="aspect-square overflow-hidden">
@@ -215,7 +236,9 @@ const GallerySection: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+              className={`fixed inset-0 z-50 flex items-center justify-center p-4 ${
+                theme === 'dark' ? 'bg-black/95' : 'bg-black/90'
+              }`}
               onClick={closeLightbox}
             >
               <motion.div

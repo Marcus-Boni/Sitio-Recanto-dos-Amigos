@@ -5,7 +5,6 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion']
   },
   images: {
-    domains: ['maps.googleapis.com', 'maps.gstatic.com'],
     remotePatterns: [
       {
         protocol: 'http',
@@ -36,7 +35,6 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   trailingSlash: false,
-  swcMinify: true,
 
   // Enhanced compiler options
   compiler: {
@@ -44,7 +42,29 @@ const nextConfig = {
   },
 
   // Bundle analyzer and optimization
-  webpack: (config, { dev, isServer }) => {
+  webpack: (
+    config: {
+      optimization: {
+        splitChunks: {
+          cacheGroups: {
+            framerMotion: {
+              name: string;
+              test: RegExp;
+              chunks: string;
+              priority: number;
+            };
+            lucideReact: {
+              name: string;
+              test: RegExp;
+              chunks: string;
+              priority: number;
+            };
+          };
+        };
+      };
+    },
+    { dev, isServer }: { dev: boolean; isServer: boolean }
+  ) => {
     if (!dev && !isServer) {
       config.optimization.splitChunks.cacheGroups.framerMotion = {
         name: 'framer-motion',
