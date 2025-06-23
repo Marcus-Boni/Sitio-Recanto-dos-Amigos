@@ -168,7 +168,11 @@ const GallerySection: React.FC = () => {
               <span
                 className={`text-xs px-2 py-1 rounded-full ${
                   activeFilter === category.id ? 'bg-white/20' : 'bg-gray-100'
-                }`}
+                } 
+                  ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}
+                  ${activeFilter === category.id ? 'text-white' : 'text-gray-500'}
+                `
+              }
               >
                 {category.count}
               </span>
