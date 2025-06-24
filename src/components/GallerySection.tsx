@@ -170,9 +170,12 @@ const GallerySection: React.FC = () => {
                   activeFilter === category.id ? 'bg-white/20' : 'bg-gray-100'
                 } 
                   ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}
-                  ${activeFilter === category.id ? 'text-white' : 'text-gray-500'}
-                `
-              }
+                  ${
+                    activeFilter === category.id
+                      ? 'text-white'
+                      : 'text-gray-500'
+                  }
+                `}
               >
                 {category.count}
               </span>
@@ -203,13 +206,14 @@ const GallerySection: React.FC = () => {
                 }`}
                 onClick={() => openLightbox(image)}
               >
-                <div className="aspect-square overflow-hidden">
-                  <motion.img
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                    src={image.src.src}
+                <div className="relative aspect-square w-full h-0 pb-[100%] overflow-hidden">
+                  <Image
+                    src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover"
+                    style={{ objectFit: 'cover' }}
                     loading="lazy"
                   />
                 </div>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TreePine, Eye, Fish, Mountain } from 'lucide-react';
+import { TreePine, Eye, TentTree, Camera } from 'lucide-react';
 import { activities } from '../data/siteData';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -14,9 +14,9 @@ const NatureActivitiesSection: React.FC = () => {
     React.ComponentType<{ size?: number; className?: string }>
   > = {
     'Trilhas na Mata': TreePine,
-    'Banho de Cachoeira': Mountain,
     'Observação de Aves': Eye,
-    'Pesca no Açude': Fish
+    'Fotografia de Paisagens':  Camera, 
+    'Acampamento Noturno':  TentTree,
   };
 
   const containerVariants = {

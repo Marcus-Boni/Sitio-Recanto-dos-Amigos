@@ -3,6 +3,19 @@ import RocaImage1 from '../assets/images/Roca1.webp';
 import RocaImage2 from '../assets/images/Roca2.webp';
 import RocaImage3 from '../assets/images/Roca3.webp';
 import RocaImage4 from '../assets/images/Roca4.webp';
+import AcampamentoNoturno from '../assets/images/Acampamento_Noturno.webp';
+import AreaExterna1 from '../assets/images/Area_Externa_1.webp';
+import AreaExterna3 from '../assets/images/Area_Externa_3.webp';
+import AreaExterna4 from '../assets/images/Area_Externa_4.webp';
+import AreaExterna8 from '../assets/images/Area_Externa_8.webp';
+import Lazer1 from '../assets/images/Lazer_1.webp';
+import Lazer2 from '../assets/images/Lazer_2.webp';
+import Acomodacoes1 from '../assets/images/Acomodacoes_1.webp';
+import Acomodacoes2 from '../assets/images/Acomodacoes_2.webp';
+import Acomodacoes3 from '../assets/images/Acomodacoes_3.webp';
+import Acomodacoes4 from '../assets/images/Acomodacoes_4.webp';
+import Acomodacoes5 from '../assets/images/Acomodacoes_5.webp';
+import Acomodacoes6 from '../assets/images/Acomodacoes_6.webp';
 
 export interface SiteInfo {
   name: string;
@@ -89,7 +102,7 @@ export const accommodations: Accommodation[] = [
       'Banheiros privativos em cada suíte',
       'Área de estar espaçosa',
       'Varanda com vista panorâmica',
-      'Wi-Fi gratuito em todo o chalé',
+      'Wi-Fi gratuito em todo o chalé'
     ]
   }
 ];
@@ -113,21 +126,22 @@ export const activities: Activity[] = [
     image: RocaImage1
   },
   {
-    title: 'Banho de Cachoeira',
-    description:
-      'Aproveite as cachoeiras cristalinas a poucos minutos do sítio',
-    image: RocaImage2
-  },
-  {
     title: 'Observação de Aves',
     description:
       'Amanheça observando as diversas espécies de aves que habitam a região',
     image: RocaImage3
   },
   {
-    title: 'Pesca no Açude',
-    description: 'Relaxe pescando no açude natural do sítio',
-    image: RocaImage4
+    title: 'Fotografia de Paisagens',
+    description:
+      'Capture a beleza natural do sítio e seus arredores com sua câmera',
+    image: RocaImage2
+  },
+  {
+    title: 'Acampamento Noturno',
+    description:
+      'Desfrute de uma noite sob as estrelas com um acampamento rústico',
+    image: AcampamentoNoturno
   }
 ];
 
@@ -141,44 +155,92 @@ export const gallery: GalleryItem[] = [
   {
     id: 2,
     src: RocaImage2,
-    alt: 'Piscina com deck de madeira',
-    category: 'lazer'
+    alt: 'Vista da montanha ao amanhecer',
+    category: 'natureza'
   },
   {
     id: 3,
     src: RocaImage3,
-    alt: 'Casa principal',
-    category: 'acomodacao'
+    alt: 'Piscina com suporte para crianças',
+    category: 'lazer'
   },
   {
     id: 4,
     src: RocaImage4,
-    alt: 'Área de churrasqueira',
-    category: 'lazer'
-  },
-  {
-    id: 5,
-    src: RocaImage1,
-    alt: 'Trilha na mata',
+    alt: 'Área verde com árvores nativas',
     category: 'natureza'
   },
   {
+    id: 5,
+    src: AreaExterna1,
+    alt: 'Área externa com gramado',
+    category: 'externa'
+  },
+  {
     id: 6,
-    src: RocaImage2,
-    alt: 'Quarto principal',
+    src: Acomodacoes5,
+    alt: 'Varanda com vista para a mata',
     category: 'acomodacao'
   },
   {
     id: 7,
-    src: RocaImage3,
-    alt: 'Nascer do sol',
-    category: 'natureza'
+    src: AreaExterna3,
+    alt: 'Área externa com churrasqueira',
+    category: 'externa'
   },
   {
     id: 8,
-    src: RocaImage4,
-    alt: 'Área de jogos',
+    src: AreaExterna4,
+    alt: 'Chalé principal com piscina',
+    category: 'externa'
+  },
+  {
+    id: 9,
+    src: Lazer2,
+    alt: 'Área de lazer com churrasqueira e Rede',
     category: 'lazer'
+  },
+  {
+    id: 10,
+    src: Acomodacoes6,
+    alt: 'Cozinha completa da área externa',
+    category: 'acomodacao'
+  },
+  {
+    id: 11,
+    src: AreaExterna8,
+    alt: 'Vista panorâmica do sítio',
+    category: 'externa'
+  },
+  {
+    id: 12,
+    src: Lazer1,
+    alt: 'Piscina iluminada à noite',
+    category: 'lazer'
+  },
+  {
+    id: 13,
+    src: Acomodacoes1,
+    alt: 'Cozinha completa da área externa',
+    category: 'acomodacao'
+  },
+  {
+    id: 14,
+    src: Acomodacoes2,
+    alt: 'Suíte aconchegante com vista para a mata',
+    category: 'acomodacao'
+  },
+  {
+    id: 15,
+    src: Acomodacoes3,
+    alt: 'Cozinha equipada do chalé',
+    category: 'acomodacao'
+  },
+  {
+    id: 16,
+    src: Acomodacoes4,
+    alt: 'Sala de estar do chalé',
+    category: 'acomodacao'
   }
 ];
 
