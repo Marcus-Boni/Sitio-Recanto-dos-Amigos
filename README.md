@@ -9,7 +9,7 @@
 
 **Uma landing page moderna e responsiva para um sítio em Guarapari, ES**
 
-[🚀 Demo](#) • [📖 Documentação](#features) • [🛠️ Instalação](#installation)
+🚀 Demo: <a href="https://sitio-recanto-dos-amigos.vercel.app/" target="_blank" rel="noreferrer">Sítio Recanto dos Amigos</a>
 
 </div>
 
