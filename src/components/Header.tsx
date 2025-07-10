@@ -1,10 +1,12 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Leaf } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ThemeToggle from './ThemeToggle';
+import { Menu, X, Leaf } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+
 import { useTheme } from '@/contexts/ThemeContext';
+
+import ThemeToggle from './ThemeToggle';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -46,7 +48,7 @@ const Header: React.FC = () => {
     { label: 'Estrutura', id: 'structure' },
     { label: 'Fotos', id: 'gallery' },
     { label: 'Avaliações', id: 'testimonials' },
-    { label: 'Contato', id: 'contact' }
+    { label: 'Contato', id: 'contact' },
   ];
 
   return (

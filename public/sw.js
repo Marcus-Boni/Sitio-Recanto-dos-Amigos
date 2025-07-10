@@ -1,6 +1,5 @@
 const CACHE_NAME = 'sitio-recanto-v1';
 
-
 // Install event - cache resources
 self.addEventListener('install', (event) => {
   event.waitUntil(

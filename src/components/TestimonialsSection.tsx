@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight, Heart } from 'lucide-react';
-import { testimonials } from '../data/siteData';
+import React, { useState, useEffect } from 'react';
+
 import { useTheme } from '../contexts/ThemeContext';
+import { testimonials } from '../data/siteData';
 
 const TestimonialsSection: React.FC = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState<number>(0);
@@ -55,18 +56,18 @@ const TestimonialsSection: React.FC = () => {
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
-      opacity: 0
+      opacity: 0,
     }),
     center: {
       zIndex: 1,
       x: 0,
-      opacity: 1
+      opacity: 1,
     },
     exit: (direction: number) => ({
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
-      opacity: 0
-    })
+      opacity: 0,
+    }),
   };
 
   return (
@@ -138,7 +139,7 @@ const TestimonialsSection: React.FC = () => {
                 exit="exit"
                 transition={{
                   x: { type: 'spring', stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 }
+                  opacity: { duration: 0.2 },
                 }}
                 className="absolute w-full"
               >
@@ -276,7 +277,7 @@ const TestimonialsSection: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{
                 scale: 1.02,
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
               }}
               className={`p-6 rounded-xl shadow-lg border transition-all duration-300 cursor-pointer ${
                 theme === 'dark'

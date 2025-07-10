@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
 import { TreePine, Eye, TentTree, Camera } from 'lucide-react';
-import { activities } from '../data/siteData';
+import React from 'react';
+
 import { useTheme } from '../contexts/ThemeContext';
+import { activities } from '../data/siteData';
 
 const NatureActivitiesSection: React.FC = () => {
   const { theme } = useTheme();
@@ -15,8 +16,8 @@ const NatureActivitiesSection: React.FC = () => {
   > = {
     'Trilhas na Mata': TreePine,
     'Observação de Aves': Eye,
-    'Fotografia de Paisagens':  Camera, 
-    'Acampamento Noturno':  TentTree,
+    'Fotografia de Paisagens': Camera,
+    'Acampamento Noturno': TentTree,
   };
 
   const containerVariants = {
@@ -24,9 +25,9 @@ const NatureActivitiesSection: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -35,9 +36,9 @@ const NatureActivitiesSection: React.FC = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   return (
@@ -111,7 +112,7 @@ const NatureActivitiesSection: React.FC = () => {
                 variants={itemVariants}
                 whileHover={{
                   scale: 1.02,
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
                 }}
                 className={`rounded-2xl shadow-lg overflow-hidden border transition-all duration-300 group ${
                   theme === 'dark'

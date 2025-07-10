@@ -1,21 +1,22 @@
 import { StaticImageData } from 'next/image';
-import RocaImage1 from '../assets/images/Roca1.webp';
-import RocaImage2 from '../assets/images/Roca2.webp';
-import RocaImage3 from '../assets/images/Roca3.webp';
-import RocaImage4 from '../assets/images/Roca4.webp';
+
 import AcampamentoNoturno from '../assets/images/Acampamento_Noturno.webp';
-import AreaExterna1 from '../assets/images/Area_Externa_1.webp';
-import AreaExterna3 from '../assets/images/Area_Externa_3.webp';
-import AreaExterna4 from '../assets/images/Area_Externa_4.webp';
-import AreaExterna8 from '../assets/images/Area_Externa_8.webp';
-import Lazer1 from '../assets/images/Lazer_1.webp';
-import Lazer2 from '../assets/images/Lazer_2.webp';
 import Acomodacoes1 from '../assets/images/Acomodacoes_1.webp';
 import Acomodacoes2 from '../assets/images/Acomodacoes_2.webp';
 import Acomodacoes3 from '../assets/images/Acomodacoes_3.webp';
 import Acomodacoes4 from '../assets/images/Acomodacoes_4.webp';
 import Acomodacoes5 from '../assets/images/Acomodacoes_5.webp';
 import Acomodacoes6 from '../assets/images/Acomodacoes_6.webp';
+import AreaExterna1 from '../assets/images/Area_Externa_1.webp';
+import AreaExterna3 from '../assets/images/Area_Externa_3.webp';
+import AreaExterna4 from '../assets/images/Area_Externa_4.webp';
+import AreaExterna8 from '../assets/images/Area_Externa_8.webp';
+import Lazer1 from '../assets/images/Lazer_1.webp';
+import Lazer2 from '../assets/images/Lazer_2.webp';
+import RocaImage1 from '../assets/images/Roca1.webp';
+import RocaImage2 from '../assets/images/Roca2.webp';
+import RocaImage3 from '../assets/images/Roca3.webp';
+import RocaImage4 from '../assets/images/Roca4.webp';
 
 export interface SiteInfo {
   name: string;
@@ -79,15 +80,15 @@ export const siteInfo: SiteInfo = {
   email: 'contato@sitiorecantodosamigos.com.br',
   coordinates: {
     lat: -20.6176709,
-    lng: -40.5817736
+    lng: -40.5817736,
   },
   socialMedia: {
     instagram:
       'https://www.instagram.com/recan.todosamigos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
     linkGoogle: 'https://g.co/kgs/vSM7BFt ',
     whatsapp:
-      'https://wa.me/5527999279173?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Sítio%20Recanto%20dos%20Amigos'
-  }
+      'https://wa.me/5527999279173?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Sítio%20Recanto%20dos%20Amigos',
+  },
 };
 
 export const accommodations: Accommodation[] = [
@@ -102,9 +103,9 @@ export const accommodations: Accommodation[] = [
       'Banheiros privativos em cada suíte',
       'Área de estar espaçosa',
       'Varanda com vista panorâmica',
-      'Wi-Fi gratuito em todo o chalé'
-    ]
-  }
+      'Wi-Fi gratuito em todo o chalé',
+    ],
+  },
 ];
 
 export const amenities: Amenity[] = [
@@ -115,7 +116,7 @@ export const amenities: Amenity[] = [
   { name: 'Estacionamento', icon: '🚗' },
   { name: 'Espaço de Lazer', icon: '🏖️' },
   { name: 'Trilhas Ecológicas', icon: '🥾' },
-  { name: 'Horta Orgânica', icon: '🌱' }
+  { name: 'Horta Orgânica', icon: '🌱' },
 ];
 
 export const activities: Activity[] = [
@@ -123,26 +124,26 @@ export const activities: Activity[] = [
     title: 'Trilhas na Mata',
     description:
       'Explore as trilhas ecológicas ao redor do sítio e descubra a rica fauna e flora local',
-    image: RocaImage1
+    image: RocaImage1,
   },
   {
     title: 'Observação de Aves',
     description:
       'Amanheça observando as diversas espécies de aves que habitam a região',
-    image: RocaImage3
+    image: RocaImage3,
   },
   {
     title: 'Fotografia de Paisagens',
     description:
       'Capture a beleza natural do sítio e seus arredores com sua câmera',
-    image: RocaImage2
+    image: RocaImage2,
   },
   {
     title: 'Acampamento Noturno',
     description:
       'Desfrute de uma noite sob as estrelas com um acampamento rústico',
-    image: AcampamentoNoturno
-  }
+    image: AcampamentoNoturno,
+  },
 ];
 
 export const gallery: GalleryItem[] = [
@@ -150,98 +151,98 @@ export const gallery: GalleryItem[] = [
     id: 1,
     src: RocaImage1,
     alt: 'Vista aérea do sítio',
-    category: 'externa'
+    category: 'externa',
   },
   {
     id: 2,
     src: RocaImage2,
     alt: 'Vista da montanha ao amanhecer',
-    category: 'natureza'
+    category: 'natureza',
   },
   {
     id: 3,
     src: RocaImage3,
     alt: 'Piscina com suporte para crianças',
-    category: 'lazer'
+    category: 'lazer',
   },
   {
     id: 4,
     src: RocaImage4,
     alt: 'Área verde com árvores nativas',
-    category: 'natureza'
+    category: 'natureza',
   },
   {
     id: 5,
     src: AreaExterna1,
     alt: 'Área externa com gramado',
-    category: 'externa'
+    category: 'externa',
   },
   {
     id: 6,
     src: Acomodacoes5,
     alt: 'Varanda com vista para a mata',
-    category: 'acomodacao'
+    category: 'acomodacao',
   },
   {
     id: 7,
     src: AreaExterna3,
     alt: 'Área externa com churrasqueira',
-    category: 'externa'
+    category: 'externa',
   },
   {
     id: 8,
     src: AreaExterna4,
     alt: 'Chalé principal com piscina',
-    category: 'externa'
+    category: 'externa',
   },
   {
     id: 9,
     src: Lazer2,
     alt: 'Área de lazer com churrasqueira e Rede',
-    category: 'lazer'
+    category: 'lazer',
   },
   {
     id: 10,
     src: Acomodacoes6,
     alt: 'Cozinha completa da área externa',
-    category: 'acomodacao'
+    category: 'acomodacao',
   },
   {
     id: 11,
     src: AreaExterna8,
     alt: 'Vista panorâmica do sítio',
-    category: 'externa'
+    category: 'externa',
   },
   {
     id: 12,
     src: Lazer1,
     alt: 'Piscina iluminada à noite',
-    category: 'lazer'
+    category: 'lazer',
   },
   {
     id: 13,
     src: Acomodacoes1,
     alt: 'Cozinha completa da área externa',
-    category: 'acomodacao'
+    category: 'acomodacao',
   },
   {
     id: 14,
     src: Acomodacoes2,
     alt: 'Suíte aconchegante com vista para a mata',
-    category: 'acomodacao'
+    category: 'acomodacao',
   },
   {
     id: 15,
     src: Acomodacoes3,
     alt: 'Cozinha equipada do chalé',
-    category: 'acomodacao'
+    category: 'acomodacao',
   },
   {
     id: 16,
     src: Acomodacoes4,
     alt: 'Sala de estar do chalé',
-    category: 'acomodacao'
-  }
+    category: 'acomodacao',
+  },
 ];
 
 export const testimonials: Testimonial[] = [
@@ -251,7 +252,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     comment:
       'Lugar maravilhoso, perto da natureza, piscina grande, área pra churrasco rústica linda, espaço grande de Gramado e suítes novas lindas. A vista da pedra e o acesso ao rio é o diferencial. Recomendo.',
-    date: 'Maio 2025'
+    date: 'Maio 2025',
   },
   {
     id: 2,
@@ -259,7 +260,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     comment:
       'Local muito agradável…atendeu todas minhas expectativas, sendo que a principal delas era ter paz ! ! !',
-    date: 'Janeiro 2025'
+    date: 'Janeiro 2025',
   },
   {
     id: 3,
@@ -267,7 +268,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     comment:
       'Espaço maravilhoso! Suítes novas, vista linda, piscina bonita e aconchegante. Ótimo para relaxar em família, com espaço de gramado extenso e área de churrasco. Acesso ao rio.',
-    date: 'Novembro 2024'
+    date: 'Novembro 2024',
   },
   {
     id: 4,
@@ -275,8 +276,8 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     comment:
       'Um lugar maravilhoso, que exala tranquilidade, um lugar de reflexão, lazer... Amei quero voltar em breve',
-    date: 'Março 2022'
-  }
+    date: 'Março 2022',
+  },
 ];
 
 // Objeto principal com todos os dados do sítio
@@ -286,5 +287,5 @@ export const siteData = {
   amenities,
   activities,
   gallery,
-  testimonials
+  testimonials,
 };

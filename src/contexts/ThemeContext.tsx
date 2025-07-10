@@ -5,7 +5,7 @@ import React, {
   useContext,
   useEffect,
   useState,
-  ReactNode
+  ReactNode,
 } from 'react';
 
 type Theme = 'light' | 'dark';
@@ -53,7 +53,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const value: ThemeContextType = {
     theme,
     toggleTheme,
-    isDark: theme === 'dark'
+    isDark: theme === 'dark',
   };
 
   if (!mounted) {

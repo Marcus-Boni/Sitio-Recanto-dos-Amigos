@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, X, ChevronLeft, ChevronRight, Filter } from 'lucide-react';
-import { gallery, type GalleryItem } from '../data/siteData';
-import { useTheme } from '../contexts/ThemeContext';
 import Image from 'next/image';
+import React, { useState } from 'react';
+
+import { useTheme } from '../contexts/ThemeContext';
+import { gallery, type GalleryItem } from '../data/siteData';
 
 const GallerySection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
@@ -17,23 +18,23 @@ const GallerySection: React.FC = () => {
     {
       id: 'externa',
       label: 'Áreas Externas',
-      count: gallery.filter((item) => item.category === 'externa').length
+      count: gallery.filter((item) => item.category === 'externa').length,
     },
     {
       id: 'lazer',
       label: 'Lazer',
-      count: gallery.filter((item) => item.category === 'lazer').length
+      count: gallery.filter((item) => item.category === 'lazer').length,
     },
     {
       id: 'acomodacao',
       label: 'Acomodações',
-      count: gallery.filter((item) => item.category === 'acomodacao').length
+      count: gallery.filter((item) => item.category === 'acomodacao').length,
     },
     {
       id: 'natureza',
       label: 'Natureza',
-      count: gallery.filter((item) => item.category === 'natureza').length
-    }
+      count: gallery.filter((item) => item.category === 'natureza').length,
+    },
   ];
 
   const filteredGallery =
@@ -52,7 +53,9 @@ const GallerySection: React.FC = () => {
   };
 
   const navigateImage = (direction: 'prev' | 'next') => {
-    if (!selectedImage) return;
+    if (!selectedImage) {
+      return;
+    }
 
     const currentIndex = filteredGallery.findIndex(
       (item) => item.id === selectedImage.id
@@ -67,7 +70,7 @@ const GallerySection: React.FC = () => {
         currentIndex < filteredGallery.length - 1 ? currentIndex + 1 : 0;
     }
 
-    setSelectedImage(filteredGallery[newIndex]);
+    setSelectedImage(filteredGallery[newIndex] ?? null);
   };
 
   const containerVariants = {
@@ -75,9 +78,9 @@ const GallerySection: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -86,9 +89,9 @@ const GallerySection: React.FC = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   return (
@@ -159,8 +162,8 @@ const GallerySection: React.FC = () => {
                 activeFilter === category.id
                   ? 'bg-purple-600 text-white shadow-lg'
                   : theme === 'dark'
-                  ? 'bg-gray-800 text-gray-300 hover:bg-purple-900/50 border border-gray-700'
-                  : 'bg-white text-gray-600 hover:bg-purple-50 border border-gray-200'
+                    ? 'bg-gray-800 text-gray-300 hover:bg-purple-900/50 border border-gray-700'
+                    : 'bg-white text-gray-600 hover:bg-purple-50 border border-gray-200'
               }`}
             >
               <Filter size={16} />

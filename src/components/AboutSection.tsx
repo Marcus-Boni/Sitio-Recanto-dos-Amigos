@@ -1,11 +1,13 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Leaf, Home, Star, MapPin, Users } from 'lucide-react';
 import Image from 'next/image';
-import RocaImage2 from '../assets/images/Roca2.webp';
+import React from 'react';
+
 import { useTheme } from '@/contexts/ThemeContext';
+
+import RocaImage2 from '../assets/images/Roca2.webp';
 
 const AboutSection: React.FC = () => {
   const { theme } = useTheme();
@@ -15,38 +17,38 @@ const AboutSection: React.FC = () => {
       icon: Heart,
       title: 'Ambiente Super Agradável',
       description:
-        'Um espaço pensado para proporcionar momentos únicos de relaxamento e conexão com a natureza.'
+        'Um espaço pensado para proporcionar momentos únicos de relaxamento e conexão com a natureza.',
     },
     {
       icon: Leaf,
       title: 'Conexão com a Natureza',
       description:
-        'Cercado pela mata atlântica preservada, oferecendo ar puro e paisagens deslumbrantes.'
+        'Cercado pela mata atlântica preservada, oferecendo ar puro e paisagens deslumbrantes.',
     },
     {
       icon: Star,
       title: 'Preço Justo',
       description:
-        'Excelente custo-benefício para sua família desfrutar de momentos inesquecíveis.'
+        'Excelente custo-benefício para sua família desfrutar de momentos inesquecíveis.',
     },
     {
       icon: Home,
       title: 'Estrutura Completa',
       description:
-        'Tudo que você precisa para uma estadia confortável e divertida.'
+        'Tudo que você precisa para uma estadia confortável e divertida.',
     },
     {
       icon: MapPin,
       title: 'Localização Privilegiada',
       description:
-        'No coração do interior de Guarapari, longe do estresse da cidade.'
+        'No coração do interior de Guarapari, longe do estresse da cidade.',
     },
     {
       icon: Users,
       title: 'Para Toda Família',
       description:
-        'Espaços e atividades planejadas para pessoas de todas as idades.'
-    }
+        'Espaços e atividades planejadas para pessoas de todas as idades.',
+    },
   ];
 
   const containerVariants = {
@@ -54,9 +56,9 @@ const AboutSection: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -65,9 +67,9 @@ const AboutSection: React.FC = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   return (
@@ -286,7 +288,7 @@ const AboutSection: React.FC = () => {
               variants={itemVariants}
               whileHover={{
                 scale: 1.05,
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
               }}
               className={`p-6 rounded-xl shadow-lg border transition-all duration-300 ${
                 theme === 'dark'

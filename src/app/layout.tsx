@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+
 import './globals.css';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 
@@ -14,8 +15,8 @@ const geistSans = Geist({
     'BlinkMacSystemFont',
     'Segoe UI',
     'Roboto',
-    'arial'
-  ]
+    'arial',
+  ],
 });
 
 const geistMono = Geist_Mono({
@@ -23,7 +24,7 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
   display: 'swap',
   preload: false,
-  fallback: ['ui-monospace', 'SFMono-Regular', 'Consolas', 'monospace']
+  fallback: ['ui-monospace', 'SFMono-Regular', 'Consolas', 'monospace'],
 });
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     'interior guarapari',
     'agroturismo',
     'ecoturismo',
-    'família natureza'
+    'família natureza',
   ],
   authors: [{ name: 'Sítio Recanto dos Amigos' }],
   creator: 'Sítio Recanto dos Amigos',
@@ -55,8 +56,8 @@ export const metadata: Metadata = {
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
-      'max-snippet': -1
-    }
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     type: 'website',
@@ -65,20 +66,20 @@ export const metadata: Metadata = {
     siteName: 'Sítio Recanto dos Amigos',
     title: 'Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES',
     description:
-      'Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo no interior de Guarapari, Espírito Santo.'
+      'Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo no interior de Guarapari, Espírito Santo.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Sítio Recanto dos Amigos - Turismo Rural em Guarapari, ES',
     description:
-      'Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo no interior de Guarapari, ES.'
+      'Ambiente familiar, contato com a natureza, acomodações confortáveis e preço justo no interior de Guarapari, ES.',
   },
   verification: {
-    google: 'your-google-site-verification-code'
+    google: 'your-google-site-verification-code',
   },
   alternates: {
-    canonical: '/'
-  }
+    canonical: '/',
+  },
 };
 
 export const viewport: Viewport = {
@@ -90,12 +91,12 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#166534' },
-    { media: '(prefers-color-scheme: dark)', color: '#166534' }
-  ]
+    { media: '(prefers-color-scheme: dark)', color: '#166534' },
+  ],
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {

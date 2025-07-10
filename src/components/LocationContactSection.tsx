@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Instagram, Link, MessageCircle } from 'lucide-react';
-import { siteInfo } from '../data/siteData';
+import React from 'react';
+
 import { useTheme } from '../contexts/ThemeContext';
+import { siteInfo } from '../data/siteData';
 
 // interface ContactFormData {
 //   name: string;
@@ -49,20 +50,20 @@ const LocationContactSection: React.FC = () => {
       icon: Instagram,
       label: 'Instagram',
       url: siteInfo.socialMedia.instagram,
-      color: 'hover:text-pink-600'
+      color: 'hover:text-pink-600',
     },
     {
       icon: Link,
       label: 'Link Google',
       url: siteInfo.socialMedia.linkGoogle,
-      color: 'hover:text-blue-600'
+      color: 'hover:text-blue-600',
     },
     {
       icon: MessageCircle,
       label: 'WhatsApp',
       url: siteInfo.socialMedia.whatsapp,
-      color: 'hover:text-green-600'
-    }
+      color: 'hover:text-green-600',
+    },
   ];
 
   return (

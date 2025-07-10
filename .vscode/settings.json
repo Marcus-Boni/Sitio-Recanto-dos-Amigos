@@ -5,7 +5,7 @@
   "editor.quickSuggestions": {
     "strings": true // forces VS Code to trigger completions when editing "string" content
   },
-	"prettier.trailingComma": "none", //Se quiser forçar single quote!
+  "prettier.trailingComma": "none", //Se quiser forçar single quote!
   "prettier.singleQuote": true, //Se quiser forçar single quote!
   "prettier.semi": true, //Se quiser forçar single quote!
   "[javascript]": {

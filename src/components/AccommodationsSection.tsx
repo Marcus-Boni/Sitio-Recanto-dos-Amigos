@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Home,
@@ -11,10 +10,12 @@ import {
   Gamepad2,
   TreePine,
   Sprout,
-  CheckCircle
+  CheckCircle,
 } from 'lucide-react';
-import { accommodations, amenities } from '../data/siteData';
+import React from 'react';
+
 import { useTheme } from '../contexts/ThemeContext';
+import { accommodations, amenities } from '../data/siteData';
 
 const AccommodationsSection: React.FC = () => {
   const { isDark } = useTheme();
@@ -30,7 +31,7 @@ const AccommodationsSection: React.FC = () => {
     '🚗': Car,
     '🎯': Gamepad2,
     '🥾': TreePine,
-    '🌱': Sprout
+    '🌱': Sprout,
   };
 
   const containerVariants = {
@@ -38,9 +39,9 @@ const AccommodationsSection: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -49,9 +50,9 @@ const AccommodationsSection: React.FC = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
   return (
     <section
@@ -119,7 +120,7 @@ const AccommodationsSection: React.FC = () => {
                 scale: 1.02,
                 boxShadow: isDark
                   ? '0 20px 40px rgba(0,0,0,0.3)'
-                  : '0 20px 40px rgba(0,0,0,0.1)'
+                  : '0 20px 40px rgba(0,0,0,0.1)',
               }}
               className={`p-8 rounded-2xl border transition-all duration-300 max-w-2xl w-full ${
                 isDark
@@ -220,7 +221,7 @@ const AccommodationsSection: React.FC = () => {
                   scale: 1.05,
                   boxShadow: isDark
                     ? '0 10px 25px rgba(0,0,0,0.3)'
-                    : '0 10px 25px rgba(0,0,0,0.1)'
+                    : '0 10px 25px rgba(0,0,0,0.1)',
                 }}
                 className={`p-6 rounded-xl shadow-lg border transition-all duration-300 group ${
                   isDark

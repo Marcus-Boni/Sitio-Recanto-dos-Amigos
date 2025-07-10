@@ -2,7 +2,7 @@
 
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion']
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   images: {
     remotePatterns: [
@@ -10,18 +10,18 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'localhost',
         port: '3000',
-        pathname: '/**'
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'maps.googleapis.com',
-        pathname: '/**'
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'maps.gstatic.com',
-        pathname: '/**'
-      }
+        pathname: '/**',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
@@ -29,7 +29,7 @@ const nextConfig = {
     minimumCacheTTL: 86400,
     dangerouslyAllowSVG: false,
     contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   compress: true,
   poweredByHeader: false,
@@ -38,7 +38,7 @@ const nextConfig = {
 
   // Enhanced compiler options
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production'
+    removeConsole: process.env.NODE_ENV === 'production',
   },
 
   // Bundle analyzer and optimization
@@ -70,14 +70,14 @@ const nextConfig = {
         name: 'framer-motion',
         test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
         chunks: 'all',
-        priority: 10
+        priority: 10,
       };
 
       config.optimization.splitChunks.cacheGroups.lucideReact = {
         name: 'lucide-react',
         test: /[\\/]node_modules[\\/](lucide-react)[\\/]/,
         chunks: 'all',
-        priority: 10
+        priority: 10,
       };
     }
     return config;
@@ -91,35 +91,35 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Frame-Options',
-            value: 'DENY'
+            value: 'DENY',
           },
           {
             key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            value: 'nosniff',
           },
           {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
+            value: 'origin-when-cross-origin',
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
+            value: 'camera=(), microphone=(), geolocation=()',
           },
           {
             key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          }
-        ]
+            value: '1; mode=block',
+          },
+        ],
       },
       {
         source: '/_next/static/(.*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
-          }
-        ]
-      }
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
   },
 
@@ -129,10 +129,10 @@ const nextConfig = {
       {
         source: '/home',
         destination: '/',
-        permanent: true
-      }
+        permanent: true,
+      },
     ];
-  }
+  },
 };
 
 module.exports = nextConfig;

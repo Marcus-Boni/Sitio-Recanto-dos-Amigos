@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
 import {
   MapPin,
@@ -9,9 +8,12 @@ import {
   Link,
   MessageCircle,
   Heart,
-  ArrowUp
+  ArrowUp,
 } from 'lucide-react';
+import React from 'react';
+
 import { siteData } from '@/data/siteData';
+
 import { useTheme } from '../contexts/ThemeContext';
 
 const Footer: React.FC = () => {
@@ -168,7 +170,7 @@ const Footer: React.FC = () => {
                   'Atividades',
                   'Galeria',
                   'Avaliações',
-                  'Contato'
+                  'Contato',
                 ].map((item) => (
                   <a
                     key={item}

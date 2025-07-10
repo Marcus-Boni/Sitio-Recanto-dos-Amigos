@@ -1,16 +1,16 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, Play } from 'lucide-react';
-import { siteInfo } from '../data/siteData';
-import { useTheme } from '../contexts/ThemeContext';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
+import React, { useState, useEffect } from 'react';
+
 import RocaImage1 from '../assets/images/Roca1.webp';
 import RocaImage2 from '../assets/images/Roca2.webp';
 import RocaImage3 from '../assets/images/Roca3.webp';
 import RocaImage4 from '../assets/images/Roca4.webp';
-import { StaticImageData } from 'next/image';
+import { useTheme } from '../contexts/ThemeContext';
+import { siteInfo } from '../data/siteData';
 
 const HeroSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => {
     RocaImage1,
     RocaImage2,
     RocaImage3,
-    RocaImage4
+    RocaImage4,
   ];
 
   // Auto-play do carrossel
@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{
               opacity: index === currentSlide ? 1 : 0,
-              scale: index === currentSlide ? 1.05 : 1
+              scale: index === currentSlide ? 1.05 : 1,
             }}
             transition={{ duration: 1.5 }}
           >
@@ -149,7 +149,7 @@ const HeroSection: React.FC = () => {
               <motion.button
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToContact}

@@ -1,13 +1,13 @@
 // filepath: c:\Users\mgalv\Projetos-Programção\Projetos Treino\landing_page_sitio\src\app\page.tsx
 'use client';
 
-import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
+import React, { Suspense } from 'react';
 
 // Critical components loaded immediately
+import AboutSection from '@/components/AboutSection';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
 
 // Loading component for better UX
 const LoadingSection = ({ className = '' }: { className?: string }) => (
@@ -26,7 +26,7 @@ const AccommodationsSection = dynamic(
   () => import('@/components/AccommodationsSection'),
   {
     ssr: false,
-    loading: () => <LoadingSection />
+    loading: () => <LoadingSection />,
   }
 );
 
@@ -36,20 +36,22 @@ const NatureActivitiesSection = dynamic(
     ssr: false,
     loading: () => (
       <LoadingSection className="bg-green-50 dark:bg-green-900/20" />
-    )
+    ),
   }
 );
 
 const GallerySection = dynamic(() => import('@/components/GallerySection'), {
   ssr: false,
-  loading: () => <LoadingSection />
+  loading: () => <LoadingSection />,
 });
 
 const TestimonialsSection = dynamic(
   () => import('@/components/TestimonialsSection'),
   {
     ssr: false,
-    loading: () => <LoadingSection className="bg-blue-50 dark:bg-blue-900/20" />
+    loading: () => (
+      <LoadingSection className="bg-blue-50 dark:bg-blue-900/20" />
+    ),
   }
 );
 
@@ -57,13 +59,15 @@ const LocationContactSection = dynamic(
   () => import('@/components/LocationContactSection'),
   {
     ssr: false,
-    loading: () => <LoadingSection />
+    loading: () => <LoadingSection />,
   }
 );
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   ssr: false,
-  loading: () => <div className="min-h-96 bg-green-900 dark:bg-green-950"></div>
+  loading: () => (
+    <div className="min-h-96 bg-green-900 dark:bg-green-950"></div>
+  ),
 });
 
 export default function Home() {

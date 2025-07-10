@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
-import { Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Sun, Moon } from 'lucide-react';
+import React from 'react';
+
 import { useTheme } from '@/contexts/ThemeContext';
 
 const ThemeToggle: React.FC = () => {
