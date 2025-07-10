@@ -45,7 +45,7 @@ const TestimonialsSection: React.FC = () => {
             key={index}
             size={20}
             className={`${
-              index < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
+              index < rating ? 'text-yellow-300 fill-current' : 'text-gray-300'
             }`}
           />
         ))}
@@ -169,7 +169,7 @@ const TestimonialsSection: React.FC = () => {
                     className="flex justify-center mb-6"
                   >
                     <StarRating
-                      rating={testimonials[currentTestimonial].rating}
+                      rating={testimonials[currentTestimonial]?.rating ?? 0}
                     />
                   </motion.div>
 
@@ -182,7 +182,7 @@ const TestimonialsSection: React.FC = () => {
                       theme === 'dark' ? 'text-gray-200' : 'text-gray-700'
                     }`}
                   >
-                    &quot;{testimonials[currentTestimonial].comment}&quot;
+                    &quot;{testimonials[currentTestimonial]?.comment}&quot;
                   </motion.p>
 
                   {/* Author Info */}
@@ -198,14 +198,14 @@ const TestimonialsSection: React.FC = () => {
                         theme === 'dark' ? 'text-white' : 'text-gray-900'
                       }`}
                     >
-                      {testimonials[currentTestimonial].name}
+                      {testimonials[currentTestimonial]?.name}
                     </h4>
                     <p
                       className={`${
                         theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
                       }`}
                     >
-                      {testimonials[currentTestimonial].date}
+                      {testimonials[currentTestimonial]?.date}
                     </p>
                   </motion.div>
                 </motion.div>

@@ -8,6 +8,8 @@ import security from 'eslint-plugin-security';
 import reactHooks from 'eslint-plugin-react-hooks';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import importPlugin from 'eslint-plugin-import';
+import react from 'eslint-plugin-react';
+import sonarjs from 'eslint-plugin-sonarjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,8 +22,8 @@ const eslintConfig = [
   // Base configuration
   js.configs.recommended,
 
-  // Next.js configurations
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  // Use compat for Next.js config to avoid patch issues
+  ...compat.extends('next/core-web-vitals'),
 
   // File patterns
   {
@@ -46,6 +48,8 @@ const eslintConfig = [
         module: 'readonly',
         require: 'readonly',
         exports: 'readonly',
+        React: 'readonly',
+        JSX: 'readonly',
       },
     },
     plugins: {
@@ -54,6 +58,22 @@ const eslintConfig = [
       'react-hooks': reactHooks,
       'jsx-a11y': jsxA11y,
       import: importPlugin,
+      react,
+      sonarjs,
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+          project: './tsconfig.json',
+        },
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
+      },
     },
     rules: {
       // TypeScript specific rules
@@ -70,9 +90,14 @@ const eslintConfig = [
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-non-null-assertion': 'warn',
-      '@typescript-eslint/no-unsafe-member-access': 'warn',
-      '@typescript-eslint/no-unsafe-call': 'warn',
-      '@typescript-eslint/no-unsafe-return': 'warn',
+
+      // React rules
+      'react/react-in-jsx-scope': 'off', // Not needed in Next.js
+      'react/prop-types': 'off', // Using TypeScript
+      'react/no-danger': 'error',
+      'react/no-danger-with-children': 'error',
+      'react/jsx-no-script-url': 'error',
+      'react/jsx-no-target-blank': 'error',
 
       // Security rules
       'security/detect-non-literal-regexp': 'error',
@@ -110,7 +135,6 @@ const eslintConfig = [
       'import/default': 'off', // Handled by TypeScript
       'import/no-named-as-default-member': 'off', // Handled by TypeScript
       'import/no-duplicates': 'error',
-      'import/no-unused-modules': 'warn',
       'import/order': [
         'error',
         {
@@ -129,6 +153,9 @@ const eslintConfig = [
           },
         },
       ],
+
+      // SonarJS rules for code quality
+      'sonarjs/no-identical-functions': 'error',
 
       // General JavaScript/TypeScript security rules
       'no-eval': 'error',
@@ -157,18 +184,6 @@ const eslintConfig = [
       radix: 'error',
       eqeqeq: ['error', 'always'],
       curly: ['error', 'all'],
-
-      // React specific security rules
-      'react/no-danger': 'error',
-      'react/no-danger-with-children': 'error',
-      'react/jsx-no-script-url': 'error',
-      'react/jsx-no-target-blank': 'error',
-
-      // Next.js specific rules
-      '@next/next/no-html-link-for-pages': 'error',
-      '@next/next/no-img-element': 'error',
-      '@next/next/no-sync-scripts': 'error',
-      '@next/next/no-title-in-document-head': 'error',
     },
   },
 
@@ -188,10 +203,16 @@ const eslintConfig = [
   },
 
   {
-    files: ['next.config.ts', 'next.config.js', 'tailwind.config.ts'],
+    files: [
+      'next.config.ts',
+      'next.config.js',
+      'tailwind.config.ts',
+      'eslint.config.mjs',
+    ],
     rules: {
       '@typescript-eslint/no-var-requires': 'off',
       'import/no-anonymous-default-export': 'off',
+      'no-console': 'off',
     },
   },
 
@@ -212,11 +233,10 @@ const eslintConfig = [
       'out/**',
       'build/**',
       'dist/**',
-      '*.config.js',
-      '*.config.mjs',
       'public/**',
-      '.eslintrc.js',
       'coverage/**',
+      '.eslintrc.js',
+      '*.config.js',
     ],
   },
 ];

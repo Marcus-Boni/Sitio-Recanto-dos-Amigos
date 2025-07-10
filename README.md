@@ -30,6 +30,7 @@ Esta é uma landing page completa e responsiva desenvolvida para promover um sí
 ## ✨ Features
 
 ### 🏠 **Seções Principais**
+
 - **Hero Section**: Carrossel de imagens com CTAs principais
 - **Sobre**: Apresentação do sítio e seus diferenciais
 - **Acomodações**: Detalhes das estruturas disponíveis
@@ -39,12 +40,14 @@ Esta é uma landing page completa e responsiva desenvolvida para promover um sí
 - **Contato**: Formulário e informações de localização
 
 ### 🎨 **Design & UX**
+
 - **Paleta Natural**: Cores inspiradas na natureza (verde, azul, terra)
 - **Animações Suaves**: Transições com Framer Motion
 - **Interface Moderna**: Design clean e profissional
 - **Navegação Intuitiva**: Menu sticky e scroll suave
 
 ### ⚡ **Performance & Tecnologia**
+
 - **Next.js 15.3.3**: Framework React de última geração
 - **TypeScript**: Tipagem estática para maior confiabilidade
 - **TailwindCSS 4.0**: Estilização utilitária moderna
@@ -57,6 +60,7 @@ Esta é uma landing page completa e responsiva desenvolvida para promover um sí
 - **WebP/AVIF**: Formatos de imagem modernos para menor tamanho
 
 ### 📱 **Funcionalidades Interativas**
+
 - **Carrossel Hero**: Auto-play com controles manuais
 - **Galeria Filtrada**: Categorização de fotos por tipo
 - **Lightbox**: Visualização ampliada de imagens
@@ -69,18 +73,21 @@ Esta é uma landing page completa e responsiva desenvolvida para promover um sí
 ## 🛠️ Tecnologias Utilizadas
 
 ### **Frontend**
+
 - **Next.js 15.3.3** - Framework React
 - **React 19.0.0** - Biblioteca UI
 - **TypeScript 5.0** - Tipagem estática
 - **TailwindCSS 4.0** - Framework CSS
 
 ### **Bibliotecas**
+
 - **Framer Motion** - Animações
 - **Lucide React** - Ícones
 - **React Hook Form** - Gerenciamento de formulários
 - **React Intersection Observer** - Animações baseadas em scroll
 
 ### **Ferramentas de Desenvolvimento**
+
 - **ESLint** - Linting de código
 - **PostCSS** - Processamento CSS
 - **Prettier** - Formatação de código
@@ -88,16 +95,19 @@ Esta é uma landing page completa e responsiva desenvolvida para promover um sí
 ## 🚀 Instalação {#installation}
 
 ### **Pré-requisitos**
-- Node.js 18.17+ 
+
+- Node.js 18.17+
 - npm, yarn, pnpm ou bun
 
 ### **Clonando o Repositório**
+
 ```bash
 git clone <repository-url>
 cd landing_page_sitio
 ```
 
 ### **Instalando Dependências**
+
 ```bash
 # Com npm
 npm install
@@ -113,6 +123,7 @@ bun install
 ```
 
 ### **Executando o Projeto**
+
 ```bash
 # Desenvolvimento
 npm run dev
@@ -165,20 +176,17 @@ landing_page_sitio/
 
 ```css
 /* Cores Principais */
---primary-green: #166534     /* Verde escuro */
---primary-blue: #1e40af      /* Azul principal */
---accent-green: #22c55e      /* Verde claro */
---accent-blue: #3b82f6       /* Azul claro */
-
-/* Cores Neutras */
---earth-brown: #a3a3a3       /* Terra */
---warm-white: #fafafa        /* Branco quente */
---soft-gray: #f3f4f6         /* Cinza suave */
+--primary-green: #166534 /* Verde escuro */ --primary-blue: #1e40af
+  /* Azul principal */ --accent-green: #22c55e /* Verde claro */
+  --accent-blue: #3b82f6 /* Azul claro */ /* Cores Neutras */
+  --earth-brown: #a3a3a3 /* Terra */ --warm-white: #fafafa /* Branco quente */
+  --soft-gray: #f3f4f6 /* Cinza suave */;
 ```
 
 ## 📊 SEO & Performance
 
 ### **Otimizações SEO**
+
 - ✅ Meta tags otimizadas
 - ✅ Open Graph tags
 - ✅ Twitter Cards
@@ -187,6 +195,7 @@ landing_page_sitio/
 - ✅ Structured data (JSON-LD)
 
 ### **Performance**
+
 - ✅ Image optimization
 - ✅ Lazy loading
 - ✅ Code splitting
@@ -196,6 +205,7 @@ landing_page_sitio/
 ## 🚀 Deploy
 
 ### **Vercel (Recomendado)**
+
 ```bash
 # Instalar Vercel CLI
 npm i -g vercel
@@ -205,6 +215,7 @@ vercel
 ```
 
 ### **Netlify**
+
 ```bash
 # Build
 npm run build
@@ -213,23 +224,26 @@ npm run build
 ```
 
 ### **Outras Plataformas**
+
 O projeto é compatível com qualquer plataforma que suporte Next.js static export.
 
 ## 📝 Customização
 
 ### **Alterando Dados do Site**
+
 Edite o arquivo `src/data/siteData.ts`:
 
 ```typescript
 export const siteInfo: SiteInfo = {
-  name: "Seu Sítio",
-  location: "Sua Localização", 
-  description: "Sua Descrição",
+  name: 'Seu Sítio',
+  location: 'Sua Localização',
+  description: 'Sua Descrição',
   // ... outros campos
 };
 ```
 
 ### **Modificando Cores**
+
 Ajuste as cores no `tailwind.config.ts`:
 
 ```typescript
